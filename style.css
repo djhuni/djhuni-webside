@@ -884,100 +884,121 @@ nav a:hover::after{
 
     background:#111;
 
-}
-
-.reviews-grid{
-
-    display:grid;
-
-    grid-template-columns:repeat(3,1fr);
-
-    gap:30px;
+    overflow:hidden;
 
 }
 
-.review-card{
+.reviews-header{
 
-    background:#1a1a1a;
+    text-align:center;
 
-    padding:40px;
-
-    border-radius:22px;
-
-    transition:.35s;
-
-    border:1px solid rgba(255,255,255,.05);
+    margin-bottom:50px;
 
 }
 
-.review-card:hover{
+.reviews-header h2{
 
-    transform:translateY(-10px);
-
-    border-color:rgba(212,175,55,.4);
-
-}
-
-.stars{
-
-    color:var(--gold);
-
-    font-size:1.3rem;
-
-    margin-bottom:20px;
-
-}
-
-.review-card p{
-
-    color:#d5d5d5;
-
-    margin-bottom:25px;
-
-}
-
-.review-card h4{
+    font-size:3rem;
 
     color:#fff;
 
+    margin-bottom:15px;
+
 }
 
-.reviews-info{
+.reviews-subtitle{
 
-    margin-top:70px;
+    color:#bbb;
+
+    font-size:1.1rem;
+
+}
+
+.reviews-rating{
 
     display:flex;
 
-    justify-content:space-between;
+    justify-content:center;
+
+    gap:30px;
+
+    margin-bottom:60px;
+
+    flex-wrap:wrap;
+
+}
+
+.rating-box{
+
+    display:flex;
 
     align-items:center;
 
-    gap:50px;
+    gap:20px;
+
+    background:#1a1a1a;
+
+    padding:20px 35px;
+
+    border-radius:18px;
+
+    border:1px solid rgba(255,255,255,.08);
+
+    transition:.35s;
 
 }
 
-.reviews-number h2{
+.rating-box:hover{
 
-    font-size:4rem;
+    transform:translateY(-6px);
 
-    color:var(--gold);
-
-}
-
-.reviews-number p{
-
-    color:#d0d0d0;
+    border-color:var(--gold);
 
 }
 
-.reviews-text{
+.rating-box img{
 
-    max-width:600px;
+    width:42px;
 
-    color:#d0d0d0;
+    height:42px;
 
 }
 
+.rating-box strong{
+
+    display:block;
+
+    color:#fff;
+
+    font-size:1.4rem;
+
+}
+
+.rating-box span{
+
+    color:#bbb;
+
+}
+
+.reviews-slider{
+
+    overflow:hidden;
+
+    position:relative;
+
+    margin-bottom:60px;
+
+}
+
+.reviews-track{
+
+    display:flex;
+
+    gap:30px;
+
+    transition:transform .8s ease;
+
+}
 /* ===========================================
                     FAQ
 =========================================== */
