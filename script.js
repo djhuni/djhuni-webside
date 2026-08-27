@@ -344,3 +344,187 @@ window.addEventListener("load", () => {
 
 console.log("%cDJ HuNi Premium Website",
 "color:#d4af37;font-size:18px;font-weight:bold;");
+/* ==========================================
+        PREMIUM REVIEWS SLIDER
+========================================== */
+
+const reviews = [
+
+{
+    stars:"★★★★★",
+    name:"Bartosz Wereski",
+    source:"google",
+    text:"Z całego serca polecamy Mateusza! Profesjonalizm od pierwszego kontaktu aż do końca imprezy. Goście bawili się do samego rana."
+},
+
+{
+    stars:"★★★★★",
+    name:"Zuzanna Rutkowska",
+    source:"google",
+    text:"Serdecznie dziękujemy za wspaniałą oprawę muzyczną naszego wesela. Wszystko przebiegło perfekcyjnie."
+},
+
+{
+    stars:"★★★★★",
+    name:"Julia Kasprzak",
+    source:"facebook",
+    text:"DJ HuNi stworzył niesamowitą atmosferę. Muzyka idealnie dobrana do gości i pełny parkiet przez całą noc."
+},
+
+{
+    stars:"★★★★★",
+    name:"Natalia i Paweł",
+    source:"facebook",
+    text:"Pełen profesjonalizm, świetny kontakt i fantastyczna zabawa. Polecamy z całego serca."
+},
+
+{
+    stars:"★★★★★",
+    name:"Anna i Michał",
+    source:"google",
+    text:"Najlepszy DJ jakiego mogliśmy wybrać. Dziękujemy za niezapomnianą noc."
+},
+
+{
+    stars:"★★★★★",
+    name:"Kasia i Damian",
+    source:"facebook",
+    text:"Wszystko dopięte na ostatni guzik. Goście zachwyceni. Jeszcze raz dziękujemy!"
+};
+
+const reviewsTrack = document.getElementById("reviewsTrack");
+
+reviews.forEach(review=>{
+
+const icon = review.source==="google"
+? "images/google.png"
+: "images/facebook.png";
+
+reviewsTrack.innerHTML += `
+
+<div class="review-card">
+
+<div class="stars">${review.stars}</div>
+
+<p>${review.text}</p>
+
+<div class="review-author">
+
+<div>
+
+<strong>${review.name}</strong>
+
+</div>
+
+<div class="review-source">
+
+<img src="${icon}" alt="${review.source}">
+
+<span>${review.source}</span>
+
+</div>
+
+</div>
+
+</div>
+
+`;
+
+});/* ==========================================
+        AUTO SLIDER
+========================================== */
+
+let reviewIndex = 0;
+let autoSlide;
+
+function moveReviews() {
+
+    const cards = document.querySelectorAll(".review-card");
+
+    if(cards.length === 0) return;
+
+    let cardWidth = cards[0].offsetWidth + 30;
+
+    reviewIndex++;
+
+    if(reviewIndex >= cards.length){
+
+        reviewIndex = 0;
+
+    }
+
+    reviewsTrack.style.transform =
+        `translateX(-${reviewIndex * cardWidth}px)`;
+
+}
+
+function startSlider(){
+
+    autoSlide = setInterval(moveReviews,5000);
+
+}
+
+function stopSlider(){
+
+    clearInterval(autoSlide);
+
+}
+
+startSlider();
+
+reviewsTrack.addEventListener("mouseenter",stopSlider);
+
+reviewsTrack.addEventListener("mouseleave",startSlider);
+
+/* ==========================================
+        SWIPE MOBILE
+========================================== */
+
+let startX = 0;
+
+reviewsTrack.addEventListener("touchstart",(e)=>{
+
+    startX = e.touches[0].clientX;
+
+});
+
+reviewsTrack.addEventListener("touchend",(e)=>{
+
+    let endX = e.changedTouches[0].clientX;
+
+    if(startX-endX>50){
+
+        moveReviews();
+
+    }
+
+    if(endX-startX>50){
+
+        reviewIndex--;
+
+        if(reviewIndex<0){
+
+            reviewIndex=document.querySelectorAll(".review-card").length-1;
+
+        }
+
+        let cardWidth=document.querySelector(".review-card").offsetWidth+30;
+
+        reviewsTrack.style.transform=
+        `translateX(-${reviewIndex*cardWidth}px)`;
+
+    }
+
+});
+
+/* ==========================================
+        RESPONSIVE
+========================================== */
+
+window.addEventListener("resize",()=>{
+
+    reviewIndex=0;
+
+    reviewsTrack.style.transform="translateX(0)";
+
+});
