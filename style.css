@@ -102,7 +102,7 @@ header .container{
 
 .logo img{
 
-    height:72px;
+    height:120px;
 
 }
 
@@ -114,7 +114,7 @@ nav{
 
     display:flex;
 
-    gap:35px;
+    gap:45px;
 
 }
 
