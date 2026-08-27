@@ -1,0 +1,154 @@
+/* RESET */
+
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+    scroll-behavior:smooth;
+}
+
+body{
+    font-family:'Poppins',sans-serif;
+    background:#090909;
+    color:#fff;
+    overflow-x:hidden;
+}
+
+/* TŁO */
+
+body::before{
+    content:"";
+    position:fixed;
+    inset:0;
+    background:
+    radial-gradient(circle at 20% 20%,rgba(255,180,0,.18),transparent 35%),
+    radial-gradient(circle at 80% 10%,rgba(255,255,255,.05),transparent 30%),
+    radial-gradient(circle at 50% 90%,rgba(255,170,0,.10),transparent 45%),
+    #090909;
+    z-index:-2;
+}
+
+body::after{
+    content:"";
+    position:fixed;
+    inset:0;
+    background-image:
+    linear-gradient(rgba(255,255,255,.03) 1px,transparent 1px),
+    linear-gradient(90deg,rgba(255,255,255,.03) 1px,transparent 1px);
+    background-size:40px 40px;
+    z-index:-1;
+}
+
+/* HERO */
+
+.hero{
+    min-height:100vh;
+    display:flex;
+    flex-direction:column;
+}
+
+/* MENU */
+
+.navbar{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:30px 8%;
+}
+
+.logo{
+    font-size:30px;
+    font-weight:800;
+    color:#FFD15C;
+    letter-spacing:2px;
+}
+
+.navbar ul{
+    display:flex;
+    list-style:none;
+    gap:40px;
+}
+
+.navbar a{
+    color:white;
+    text-decoration:none;
+    font-weight:500;
+    transition:.3s;
+}
+
+.navbar a:hover{
+    color:#FFD15C;
+}
+
+/* ŚRODEK */
+
+.hero-content{
+    flex:1;
+    display:flex;
+    flex-direction:column;
+    justify-content:center;
+    align-items:center;
+    text-align:center;
+    padding:30px;
+}
+
+.hero-content h1{
+    font-size:68px;
+    max-width:900px;
+    line-height:1.1;
+    margin-bottom:25px;
+}
+
+.hero-content p{
+    font-size:24px;
+    color:#d6d6d6;
+    margin-bottom:50px;
+}
+
+.button{
+    background:#FFD15C;
+    color:#111;
+    padding:18px 40px;
+    border-radius:50px;
+    text-decoration:none;
+    font-weight:700;
+    font-size:18px;
+    transition:.3s;
+    box-shadow:0 15px 40px rgba(255,209,92,.35);
+}
+
+.button:hover{
+    transform:translateY(-4px);
+    box-shadow:0 25px 60px rgba(255,209,92,.45);
+}
+
+/* TELEFON */
+
+@media(max-width:900px){
+
+.navbar{
+    flex-direction:column;
+    gap:20px;
+}
+
+.navbar ul{
+    gap:20px;
+    flex-wrap:wrap;
+    justify-content:center;
+}
+
+.hero-content h1{
+    font-size:42px;
+}
+
+.hero-content p{
+    font-size:18px;
+}
+
+.button{
+    width:100%;
+    max-width:320px;
+    text-align:center;
+}
+
+}
