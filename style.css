@@ -150,5 +150,61 @@ body::after{
     max-width:320px;
     text-align:center;
 }
+/* ===== O MNIE ===== */
 
+.about{
+    padding:100px 8%;
+    background:#0d0d0d;
+}
+
+.about-container{
+    max-width:1100px;
+    margin:auto;
+    text-align:center;
+}
+
+.about h2{
+    font-size:46px;
+    color:#ffd700;
+    margin-bottom:30px;
+}
+
+.about-text{
+    color:#d7d7d7;
+    font-size:20px;
+    line-height:1.8;
+    max-width:800px;
+    margin:0 auto 70px;
+}
+
+.stats{
+    display:flex;
+    justify-content:center;
+    gap:30px;
+    flex-wrap:wrap;
+}
+
+.stat-box{
+    background:#181818;
+    border:1px solid rgba(255,215,0,.2);
+    border-radius:20px;
+    padding:35px;
+    width:260px;
+    transition:.3s;
+}
+
+.stat-box:hover{
+    transform:translateY(-8px);
+    border-color:#ffd700;
+}
+
+.stat-box h3{
+    color:#ffd700;
+    font-size:46px;
+    margin-bottom:10px;
+}
+
+.stat-box p{
+    color:#ddd;
+    font-size:18px;
 }
