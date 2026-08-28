@@ -974,3 +974,27 @@ document.addEventListener("DOMContentLoaded", () => {
 
 
 });
+/* ===========================================
+   DODATKOWE ATRAKCJE - PODGLĄD ZDJĘCIA
+=========================================== */
+
+const extraCards = document.querySelectorAll(".extra-card");
+
+extraCards.forEach(card => {
+
+    card.addEventListener("click", () => {
+
+        const image = card.querySelector("img");
+
+        if (!image || !lightbox || !lightboxImg) return;
+
+        lightboxImg.src = image.src;
+        lightboxImg.alt = image.alt || "DJ HuNi - dodatkowa atrakcja";
+
+        lightbox.classList.add("active");
+
+        document.body.style.overflow = "hidden";
+
+    });
+
+});
