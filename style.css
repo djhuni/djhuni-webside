@@ -1215,5 +1215,310 @@ header .header-inner .header-socials a:hover i{
 
         padding:0 12px;
     }
+/* ===========================================
+   COOKIE BANNER
+=========================================== */
+
+.cookie-banner{
+    position:fixed;
+    left:20px;
+    right:20px;
+    bottom:20px;
+
+    z-index:99999;
+
+    opacity:0;
+    visibility:hidden;
+    transform:translateY(30px);
+
+    transition:
+        opacity .4s ease,
+        transform .4s ease,
+        visibility .4s ease;
+}
+
+.cookie-banner.show{
+    opacity:1;
+    visibility:visible;
+    transform:translateY(0);
+}
+
+.cookie-inner{
+    max-width:1180px;
+    margin:0 auto;
+
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:30px;
+
+    padding:20px 24px;
+
+    background:rgba(12,12,12,.97);
+
+    border:1px solid rgba(212,175,55,.45);
+    border-radius:18px;
+
+    box-shadow:
+        0 20px 60px rgba(0,0,0,.65),
+        0 0 25px rgba(212,175,55,.06);
+
+    backdrop-filter:blur(15px);
+}
+
+.cookie-text{
+    display:flex;
+    align-items:center;
+    gap:18px;
+    max-width:750px;
+}
+
+.cookie-text > i{
+    color:#d4af37;
+    font-size:30px;
+    flex-shrink:0;
+}
+
+.cookie-text strong{
+    display:block;
+    margin-bottom:5px;
+    color:#d4af37;
+    font-size:16px;
+}
+
+.cookie-text p{
+    margin:0;
+    color:rgba(255,255,255,.72);
+    font-size:13px;
+    line-height:1.6;
+}
+
+.cookie-buttons{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    flex-shrink:0;
+}
+
+.cookie-btn{
+    min-height:44px;
+    padding:0 20px;
+    border-radius:24px;
+
+    font-size:13px;
+    font-weight:600;
+
+    cursor:pointer;
+
+    transition:.3s ease;
+}
+
+.cookie-reject{
+    border:1px solid rgba(255,255,255,.25);
+    background:transparent;
+    color:rgba(255,255,255,.8);
+}
+
+.cookie-reject:hover{
+    border-color:#fff;
+    color:#fff;
+    transform:translateY(-2px);
+}
+
+.cookie-accept{
+    border:1px solid #d4af37;
+    background:#d4af37;
+    color:#111;
+}
+
+.cookie-accept:hover{
+    background:#e5c457;
+    border-color:#e5c457;
+    transform:translateY(-2px);
+}
+
+
+/* ===========================================
+   STOPKA - LINKI
+=========================================== */
+
+.footer-legal{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:10px;
+
+    margin-top:12px;
+
+    font-size:13px;
+}
+
+.footer-legal a{
+    color:rgba(255,255,255,.55);
+    text-decoration:none;
+    transition:color .3s ease;
+}
+
+.footer-legal a:hover{
+    color:#d4af37;
+}
+
+.footer-legal span{
+    color:rgba(212,175,55,.5);
+}
+
+
+/* ===========================================
+   POLITYKA PRYWATNOŚCI
+=========================================== */
+
+.privacy-modal{
+    position:fixed;
+    inset:0;
+    z-index:100000;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    padding:20px;
+
+    background:rgba(0,0,0,.82);
+    backdrop-filter:blur(8px);
+
+    opacity:0;
+    visibility:hidden;
+
+    transition:.3s ease;
+}
+
+.privacy-modal.show{
+    opacity:1;
+    visibility:visible;
+}
+
+.privacy-box{
+    position:relative;
+
+    width:100%;
+    max-width:850px;
+    max-height:85vh;
+
+    padding:38px;
+
+    overflow-y:auto;
+
+    background:#111;
+
+    border:1px solid rgba(212,175,55,.4);
+    border-radius:22px;
+
+    box-shadow:
+        0 30px 80px rgba(0,0,0,.7),
+        0 0 30px rgba(212,175,55,.08);
+}
+
+.privacy-label{
+    display:block;
+    margin-bottom:7px;
+    color:#d4af37;
+
+    font-size:12px;
+    font-weight:600;
+
+    letter-spacing:2px;
+    text-transform:uppercase;
+}
+
+.privacy-box h2{
+    margin:0 45px 30px 0;
+    color:#fff;
+    font-size:30px;
+}
+
+.privacy-content h3{
+    margin:26px 0 8px;
+    color:#d4af37;
+    font-size:16px;
+}
+
+.privacy-content p{
+    margin:0 0 12px;
+    color:rgba(255,255,255,.7);
+    font-size:14px;
+    line-height:1.75;
+}
+
+.privacy-content strong{
+    color:#fff;
+}
+
+.privacy-close{
+    position:absolute;
+    top:18px;
+    right:20px;
+
+    width:42px;
+    height:42px;
+
+    border:1px solid rgba(212,175,55,.4);
+    border-radius:50%;
+
+    background:transparent;
+    color:#d4af37;
+
+    font-size:27px;
+
+    cursor:pointer;
+
+    transition:.3s ease;
+}
+
+.privacy-close:hover{
+    background:#d4af37;
+    color:#111;
+}
+
+
+/* ===========================================
+   MOBILE
+=========================================== */
+
+@media(max-width:700px){
+
+    .cookie-banner{
+        left:10px;
+        right:10px;
+        bottom:10px;
+    }
+
+    .cookie-inner{
+        display:block;
+        padding:18px;
+    }
+
+    .cookie-text{
+        align-items:flex-start;
+        gap:13px;
+    }
+
+    .cookie-buttons{
+        margin-top:16px;
+        width:100%;
+    }
+
+    .cookie-btn{
+        flex:1;
+        padding:0 12px;
+    }
+
+    .privacy-box{
+        padding:28px 20px;
+        max-height:88vh;
+    }
+
+    .privacy-box h2{
+        font-size:23px;
+    }
 
 }
