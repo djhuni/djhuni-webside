@@ -1294,25 +1294,26 @@ const showMoreGallery =
 const moreGallery =
     document.getElementById("moreGallery");
 
-if(showMoreGallery && moreGallery){
+if (showMoreGallery && moreGallery) {
 
     showMoreGallery.addEventListener("click", () => {
 
         moreGallery.classList.toggle("active");
         showMoreGallery.classList.toggle("active");
 
-        if(moreGallery.classList.contains("active")){
+        if (moreGallery.classList.contains("active")) {
 
             showMoreGallery.childNodes[0].nodeValue =
                 "Pokaż mniej zdjęć ";
 
-        }else{
+        } else {
 
             showMoreGallery.childNodes[0].nodeValue =
                 "Pokaż więcej zdjęć ";
 
         }
-       });
+
+    });
 
 }
 /* ===========================================
