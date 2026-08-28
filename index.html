@@ -3,12 +3,11 @@
 
 <head>
 
-  <!-- Google Analytics + Consent Mode -->
+ <!-- Google Analytics + Consent Mode -->
 <script>
     window.dataLayer = window.dataLayer || [];
     function gtag(){dataLayer.push(arguments);}
 
-    /* Domyślnie brak zgody */
     gtag('consent', 'default', {
         'analytics_storage': 'denied',
         'ad_storage': 'denied',
@@ -16,7 +15,6 @@
         'ad_personalization': 'denied'
     });
 
-    /* Jeżeli użytkownik wcześniej zaakceptował */
     if (localStorage.getItem('djhuni_cookie_consent') === 'accepted') {
         gtag('consent', 'update', {
             'analytics_storage': 'granted'
@@ -2085,31 +2083,37 @@
     <div class="cookie-inner">
 
         <div class="cookie-text">
+
             <i class="fa-solid fa-cookie-bite"></i>
 
             <div>
+
                 <strong>Twoja prywatność</strong>
 
                 <p>
-                    Ta strona korzysta z Google Analytics, aby anonimowo
-                    analizować ruch i pomagać mi ulepszać stronę.
-                    Możesz zaakceptować analitykę lub korzystać wyłącznie
-                    z niezbędnych funkcji strony.
+                    Ta strona korzysta z narzędzi analitycznych,
+                    które pomagają mi sprawdzić, jak użytkownicy
+                    korzystają ze strony. Analityka zostanie
+                    uruchomiona dopiero po Twojej zgodzie.
                 </p>
+
             </div>
+
         </div>
 
         <div class="cookie-buttons">
 
-            <button id="cookieReject"
-                    class="cookie-btn cookie-reject"
-                    type="button">
+            <button
+                id="cookieReject"
+                class="cookie-btn cookie-reject"
+                type="button">
                 Tylko niezbędne
             </button>
 
-            <button id="cookieAccept"
-                    class="cookie-btn cookie-accept"
-                    type="button">
+            <button
+                id="cookieAccept"
+                class="cookie-btn cookie-accept"
+                type="button">
                 Akceptuję
             </button>
 
@@ -2118,6 +2122,117 @@
     </div>
 
 </div>
+<!-- POLITYKA PRYWATNOŚCI -->
+<div class="privacy-modal" id="privacyModal">
+
+    <div class="privacy-box">
+
+        <button
+            class="privacy-close"
+            id="privacyClose"
+            type="button"
+            aria-label="Zamknij">
+            &times;
+        </button>
+
+        <span class="privacy-label">DJ HuNi</span>
+
+        <h2>Polityka prywatności i cookies</h2>
+
+        <div class="privacy-content">
+
+            <h3>1. Informacje ogólne</h3>
+
+            <p>
+                Niniejsza polityka dotyczy strony internetowej
+                DJ HuNi dostępnej pod adresem djhuni.pl.
+            </p>
+
+            <h3>2. Kontakt</h3>
+
+            <p>
+                W sprawach związanych z prywatnością i funkcjonowaniem
+                strony możesz skontaktować się pod adresem
+                <strong>djhuni@o2.pl</strong>.
+            </p>
+
+            <h3>3. Formularz kontaktowy</h3>
+
+            <p>
+                Dane przekazane dobrowolnie poprzez formularz kontaktowy
+                wykorzystywane są wyłącznie w celu udzielenia odpowiedzi
+                na zapytanie oraz kontaktu w sprawie oferowanych usług.
+            </p>
+
+            <h3>4. Google Analytics</h3>
+
+            <p>
+                Strona korzysta z Google Analytics w celu uzyskiwania
+                informacji statystycznych dotyczących sposobu korzystania
+                ze strony, takich jak liczba odwiedzin, popularność treści
+                czy ogólne informacje techniczne dotyczące wizyt.
+            </p>
+
+            <p>
+                Analityczne pliki cookies są wykorzystywane po wyrażeniu
+                zgody przez użytkownika.
+            </p>
+
+            <h3>5. Pliki cookies</h3>
+
+            <p>
+                Strona może wykorzystywać pliki cookies oraz podobne
+                technologie niezbędne do jej prawidłowego działania.
+                Technologie analityczne są wykorzystywane zgodnie
+                z wyborem dokonanym przez użytkownika.
+            </p>
+
+            <h3>6. Zmiana zgody</h3>
+
+            <p>
+                Użytkownik może w dowolnym momencie zmienić swój wybór
+                poprzez opcję „Ustawienia cookies” znajdującą się
+                w stopce strony.
+            </p>
+
+            <h3>7. Zewnętrzni dostawcy</h3>
+
+            <p>
+                W związku z korzystaniem z Google Analytics dane
+                mogą być przetwarzane przez dostawcę tej usługi,
+                czyli Google.
+            </p>
+
+            <h3>8. Zmiany polityki</h3>
+
+            <p>
+                Polityka może zostać zaktualizowana w przypadku zmian
+                działania strony, używanych narzędzi lub obowiązujących
+                przepisów.
+            </p>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+<!-- LINKI PRYWATNOŚCI I COOKIES -->
+<div class="footer-legal">
+
+    <a href="#" id="privacyOpen">
+        Polityka prywatności
+    </a>
+
+    <span>•</span>
+
+    <a href="#" id="cookieSettings">
+        Ustawienia cookies
+    </a>
+
+</div>
+
 
 </body>
 
