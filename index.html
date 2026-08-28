@@ -2122,22 +2122,192 @@
     </div>
 
 </div>
+<!-- =========================================
+     PRYWATNOŚĆ I COOKIES
+========================================= -->
+
+<style>
+
+#privacyModal{
+    position:fixed;
+    inset:0;
+    z-index:100000;
+
+    display:none;
+    align-items:center;
+    justify-content:center;
+
+    padding:20px;
+
+    background:rgba(0,0,0,.88);
+    backdrop-filter:blur(8px);
+}
+
+#privacyModal.open{
+    display:flex;
+}
+
+#privacyModal .privacy-box{
+    position:relative;
+
+    width:min(850px, 100%);
+    max-height:85vh;
+
+    overflow-y:auto;
+
+    padding:38px;
+
+    background:#111;
+    border:1px solid rgba(212,175,55,.45);
+    border-radius:22px;
+
+    box-shadow:0 30px 80px rgba(0,0,0,.75);
+}
+
+#privacyModal .privacy-label{
+    display:block;
+
+    margin-bottom:7px;
+
+    color:#d4af37;
+
+    font-size:12px;
+    font-weight:600;
+    letter-spacing:2px;
+    text-transform:uppercase;
+}
+
+#privacyModal h2{
+    margin:0 50px 25px 0;
+
+    color:#fff;
+
+    font-size:30px;
+}
+
+#privacyModal h3{
+    margin:24px 0 7px;
+
+    color:#d4af37;
+
+    font-size:16px;
+}
+
+#privacyModal p{
+    margin:0 0 12px;
+
+    color:rgba(255,255,255,.75);
+
+    font-size:14px;
+    line-height:1.7;
+}
+
+#privacyModal strong{
+    color:#fff;
+}
+
+#privacyClose{
+    position:absolute;
+    top:18px;
+    right:18px;
+
+    width:42px;
+    height:42px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    padding:0;
+
+    border:1px solid rgba(212,175,55,.55);
+    border-radius:50%;
+
+    background:transparent;
+    color:#d4af37;
+
+    font-size:28px;
+    line-height:1;
+
+    cursor:pointer;
+}
+
+#privacyClose:hover{
+    background:#d4af37;
+    color:#111;
+}
+
+.footer-legal{
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    gap:10px;
+
+    padding:15px 10px 25px;
+
+    background:#090909;
+
+    font-size:13px;
+}
+
+.footer-legal a{
+    color:rgba(255,255,255,.55);
+    text-decoration:none;
+}
+
+.footer-legal a:hover{
+    color:#d4af37;
+}
+
+.footer-legal span{
+    color:rgba(212,175,55,.55);
+}
+
+@media(max-width:600px){
+
+    #privacyModal{
+        padding:10px;
+    }
+
+    #privacyModal .privacy-box{
+        padding:28px 20px;
+        max-height:90vh;
+    }
+
+    #privacyModal h2{
+        font-size:23px;
+    }
+
+    #privacyModal p{
+        font-size:13px;
+    }
+
+}
+
+</style>
+
+
 <!-- POLITYKA PRYWATNOŚCI -->
-<div class="privacy-modal" id="privacyModal">
+
+<div id="privacyModal">
 
     <div class="privacy-box">
 
         <button
-            class="privacy-close"
             id="privacyClose"
             type="button"
             aria-label="Zamknij">
             &times;
         </button>
 
-        <span class="privacy-label">DJ HuNi</span>
+        <span class="privacy-label">
+            DJ HuNi
+        </span>
 
-        <h2>Polityka prywatności i cookies</h2>
+        <h2>
+            Polityka prywatności i cookies
+        </h2>
 
         <div class="privacy-content">
 
@@ -2148,6 +2318,7 @@
                 DJ HuNi dostępnej pod adresem djhuni.pl.
             </p>
 
+
             <h3>2. Kontakt</h3>
 
             <p>
@@ -2156,6 +2327,7 @@
                 <strong>djhuni@o2.pl</strong>.
             </p>
 
+
             <h3>3. Formularz kontaktowy</h3>
 
             <p>
@@ -2163,6 +2335,7 @@
                 wykorzystywane są wyłącznie w celu udzielenia odpowiedzi
                 na zapytanie oraz kontaktu w sprawie oferowanych usług.
             </p>
+
 
             <h3>4. Google Analytics</h3>
 
@@ -2178,6 +2351,7 @@
                 zgody przez użytkownika.
             </p>
 
+
             <h3>5. Pliki cookies</h3>
 
             <p>
@@ -2187,6 +2361,7 @@
                 z wyborem dokonanym przez użytkownika.
             </p>
 
+
             <h3>6. Zmiana zgody</h3>
 
             <p>
@@ -2195,6 +2370,7 @@
                 w stopce strony.
             </p>
 
+
             <h3>7. Zewnętrzni dostawcy</h3>
 
             <p>
@@ -2202,6 +2378,7 @@
                 mogą być przetwarzane przez dostawcę tej usługi,
                 czyli Google.
             </p>
+
 
             <h3>8. Zmiany polityki</h3>
 
@@ -2218,7 +2395,8 @@
 </div>
 
 
-<!-- LINKI PRYWATNOŚCI I COOKIES -->
+<!-- LINKI NA DOLE -->
+
 <div class="footer-legal">
 
     <a href="#" id="privacyOpen">
@@ -2234,6 +2412,79 @@
 </div>
 
 
+<script>
+
+const privacyModalFix =
+    document.getElementById("privacyModal");
+
+const privacyOpenFix =
+    document.getElementById("privacyOpen");
+
+const privacyCloseFix =
+    document.getElementById("privacyClose");
+
+
+if (privacyOpenFix && privacyModalFix){
+
+    privacyOpenFix.addEventListener("click", function(e){
+
+        e.preventDefault();
+
+        privacyModalFix.classList.add("open");
+
+        document.body.style.overflow = "hidden";
+
+    });
+
+}
+
+
+if (privacyCloseFix && privacyModalFix){
+
+    privacyCloseFix.addEventListener("click", function(){
+
+        privacyModalFix.classList.remove("open");
+
+        document.body.style.overflow = "";
+
+    });
+
+}
+
+
+if (privacyModalFix){
+
+    privacyModalFix.addEventListener("click", function(e){
+
+        if(e.target === privacyModalFix){
+
+            privacyModalFix.classList.remove("open");
+
+            document.body.style.overflow = "";
+
+        }
+
+    });
+
+}
+
+
+document.addEventListener("keydown", function(e){
+
+    if(
+        e.key === "Escape" &&
+        privacyModalFix
+    ){
+
+        privacyModalFix.classList.remove("open");
+
+        document.body.style.overflow = "";
+
+    }
+
+});
+
+</script>
 </body>
 
 </html>
