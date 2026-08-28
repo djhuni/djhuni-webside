@@ -33,3 +33,77 @@ section{animation:fadeUp .8s ease}@keyframes fadeUp{from{opacity:0;transform:tra
 @media(max-width:992px){.hero-content,.about .container,.contact .container{grid-template-columns:1fr}.offer-grid,.extras-grid,.timeline-grid,.gallery-grid,.stats .container{grid-template-columns:1fr 1fr}.hero-text{text-align:center}.hero-text p{margin-left:auto;margin-right:auto}.hero-buttons{justify-content:center}.hero-text h1{font-size:3rem}.contact-right{padding:32px}}
 @media(max-width:768px){header{padding:14px 0}.logo img{height:64px}nav{display:none}.menu-btn{display:block}.offer-grid,.extras-grid,.timeline-grid,.gallery-grid,.stats .container{grid-template-columns:1fr}.hero{padding-top:120px}.hero-text h1{font-size:2.4rem}.section-heading h2,.about-content h2,.contact-left h2{font-size:2rem}.hero-image img{max-width:100%}.btn-primary,.btn-secondary{width:100%}.gallery-item img{height:300px}.review-card{flex-basis:100%;min-height:auto}.review-arrow{flex-basis:42px;width:42px;height:42px}.contact-right input,.contact-right textarea,.contact-right select{font-size:16px}}
 @media(max-width:650px){.reviews-platforms{grid-template-columns:1fr}.platform-card{min-height:110px;justify-content:flex-start;padding:18px 20px}.reviews-slider{gap:8px}.review-arrow{position:absolute;top:50%;transform:translateY(-50%);z-index:5;background:rgba(15,15,15,.92)}.review-arrow:hover{transform:translateY(-50%)}.review-prev{left:8px}.review-next{right:8px}.review-card{padding:28px 48px}.review-top{flex-direction:column;gap:8px}.contact-right{padding:24px 20px;border-radius:22px}}
+/* ===========================================
+   MENU MOBILNE - POPRAWKA
+=========================================== */
+
+@media (max-width:768px){
+
+    header .container{
+        position:relative;
+    }
+
+    nav{
+        display:none;
+        position:absolute;
+
+        top:85px;
+        left:0;
+
+        width:100%;
+
+        flex-direction:column;
+
+        gap:0;
+
+        padding:15px;
+
+        background:rgba(9,9,9,.98);
+
+        border:1px solid rgba(212,175,55,.25);
+
+        border-radius:18px;
+
+        box-shadow:0 25px 60px rgba(0,0,0,.55);
+
+        backdrop-filter:blur(20px);
+    }
+
+
+    nav.active{
+        display:flex;
+    }
+
+
+    nav a{
+        display:block;
+
+        width:100%;
+
+        padding:16px 18px;
+
+        color:#fff;
+
+        font-size:17px;
+
+        border-bottom:1px solid rgba(255,255,255,.07);
+    }
+
+
+    nav a:last-child{
+        border-bottom:none;
+    }
+
+
+    nav a:hover,
+    nav a.active{
+        color:var(--gold);
+    }
+
+
+    .menu-btn{
+        position:relative;
+        z-index:1002;
+    }
+
+}
