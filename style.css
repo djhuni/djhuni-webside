@@ -952,3 +952,80 @@ section{animation:fadeUp .8s ease}@keyframes fadeUp{from{opacity:0;transform:tra
     }
 
 }
+/* ===========================================
+   SOCIAL MEDIA HEADER - FINAL
+=========================================== */
+
+header .header-inner .header-socials{
+    display:flex !important;
+    align-items:center !important;
+    justify-content:center !important;
+
+    gap:10px !important;
+
+    margin-left:45px !important;
+    margin-right:auto !important;
+
+    flex-shrink:0 !important;
+}
+
+header .header-inner .header-socials a{
+    width:42px !important;
+    height:42px !important;
+
+    display:flex !important;
+    align-items:center !important;
+    justify-content:center !important;
+
+    padding:0 !important;
+    margin:0 !important;
+
+    border:1px solid rgba(212,175,55,.65) !important;
+    border-radius:50% !important;
+
+    background:rgba(212,175,55,.07) !important;
+
+    color:#d4af37 !important;
+
+    font-size:18px !important;
+    line-height:1 !important;
+
+    text-decoration:none !important;
+
+    transition:
+        transform .3s ease,
+        background .3s ease,
+        color .3s ease,
+        box-shadow .3s ease !important;
+}
+
+header .header-inner .header-socials a i{
+    color:#d4af37 !important;
+    font-size:18px !important;
+}
+
+header .header-inner .header-socials a:hover{
+    background:#d4af37 !important;
+    color:#111 !important;
+
+    transform:translateY(-3px);
+
+    box-shadow:
+        0 7px 20px rgba(0,0,0,.4),
+        0 0 18px rgba(212,175,55,.25) !important;
+}
+
+header .header-inner .header-socials a:hover i{
+    color:#111 !important;
+}
+
+
+/* TABLET / TELEFON */
+
+@media(max-width:900px){
+
+    header .header-inner .header-socials{
+        display:none !important;
+    }
+
+}
