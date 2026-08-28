@@ -1216,13 +1216,9 @@ document.addEventListener("keydown", event => {
         return;
     }
 
-
     if(event.key === "Escape"){
-
         closeExtrasLightbox();
-
     }
-
 
     if(
         event.key === "ArrowRight" &&
@@ -1239,9 +1235,7 @@ document.addEventListener("keydown", event => {
         }
 
         showExtraImage();
-
     }
-
 
     if(
         event.key === "ArrowLeft" &&
@@ -1256,10 +1250,13 @@ document.addEventListener("keydown", event => {
         }
 
         showExtraImage();
-
     }
+
+}); // <-- ZAMKNIĘCIE OBSŁUGI KLAWIATURY
+
+
 /* ===========================================
-        PAS EMOCJI - ZMIANA TŁA
+   PAS EMOCJI - ZMIANA TŁA
 =========================================== */
 
 const emotionSlides =
@@ -1284,9 +1281,10 @@ if(emotionSlides.length > 1){
             .classList.add("active");
 
     }, 6500);
-
 }
-   /* ===========================================
+
+
+/* ===========================================
    POKAŻ WIĘCEJ - GALERIA
 =========================================== */
 
@@ -1304,14 +1302,21 @@ if(showMoreGallery && moreGallery){
         showMoreGallery.classList.toggle("active");
 
         if(moreGallery.classList.contains("active")){
+
             showMoreGallery.childNodes[0].nodeValue =
                 "Pokaż mniej zdjęć ";
+
         }else{
+
             showMoreGallery.childNodes[0].nodeValue =
                 "Pokaż więcej zdjęć ";
+
         }
 
     });
-
 }
+
+
+/* ZAMKNIĘCIE DOMContentLoaded */
+
 });
