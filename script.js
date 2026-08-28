@@ -1370,7 +1370,7 @@ if (cookieReject) {
         cookieBanner.classList.remove("show");
 
     });
-
+ }
 
 
 
