@@ -1258,5 +1258,32 @@ document.addEventListener("keydown", event => {
         showExtraImage();
 
     }
+/* ===========================================
+        PAS EMOCJI - ZMIANA TŁA
+=========================================== */
 
+const emotionSlides =
+    document.querySelectorAll(".emotion-slide");
+
+if(emotionSlides.length > 1){
+
+    let emotionIndex = 0;
+
+    setInterval(() => {
+
+        emotionSlides[emotionIndex]
+            .classList.remove("active");
+
+        emotionIndex++;
+
+        if(emotionIndex >= emotionSlides.length){
+            emotionIndex = 0;
+        }
+
+        emotionSlides[emotionIndex]
+            .classList.add("active");
+
+    }, 6500);
+
+}
 });
