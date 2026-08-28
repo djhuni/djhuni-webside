@@ -2523,6 +2523,95 @@ document.addEventListener("keydown", function(e){
     </div>
 
 </div>
+ const cookieBannerFix =
+    document.getElementById("cookieBanner");
+
+const cookieAcceptFix =
+    document.getElementById("cookieAccept");
+
+const cookieRejectFix =
+    document.getElementById("cookieReject");
+
+const cookieSettingsFix =
+    document.getElementById("cookieSettings");
+
+const savedCookieConsent =
+    localStorage.getItem("djhuni_cookie_consent");
+
+
+if(cookieBannerFix && !savedCookieConsent){
+
+    setTimeout(function(){
+
+        cookieBannerFix.classList.add("open");
+
+    }, 700);
+
+}
+
+
+if(cookieAcceptFix){
+
+    cookieAcceptFix.addEventListener("click", function(){
+
+        localStorage.setItem(
+            "djhuni_cookie_consent",
+            "accepted"
+        );
+
+        if(typeof gtag === "function"){
+
+            gtag("consent", "update", {
+                analytics_storage: "granted"
+            });
+
+        }
+
+        cookieBannerFix.classList.remove("open");
+
+    });
+
+}
+
+
+if(cookieRejectFix){
+
+    cookieRejectFix.addEventListener("click", function(){
+
+        localStorage.setItem(
+            "djhuni_cookie_consent",
+            "rejected"
+        );
+
+        if(typeof gtag === "function"){
+
+            gtag("consent", "update", {
+                analytics_storage: "denied",
+                ad_storage: "denied",
+                ad_user_data: "denied",
+                ad_personalization: "denied"
+            });
+
+        }
+
+        cookieBannerFix.classList.remove("open");
+
+    });
+
+}
+
+
+if(cookieSettingsFix && cookieBannerFix){
+
+    cookieSettingsFix.addEventListener("click", function(e){
+
+        e.preventDefault();
+
+        cookieBannerFix.classList.add("open");
+
+    });
+
+}
 </script>
 </body>
 
