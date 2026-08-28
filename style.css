@@ -653,7 +653,6 @@ section{animation:fadeUp .8s ease}@keyframes fadeUp{from{opacity:0;transform:tra
 
 /* ponieważ zdjęcie przejmuje ::before */
 
-}
 
 
 /* TELEFON */
@@ -1520,6 +1519,7 @@ header .header-inner .header-socials a:hover i{
     .privacy-box h2{
         font-size:23px;
     }
+ }  
 /* ===========================================
    POLITYKA PRYWATNOŚCI - NAPRAWA
 =========================================== */
@@ -1646,6 +1646,7 @@ header .header-inner .header-socials a:hover i{
     .privacy-box h2{
         font-size:23px !important;
     }
+}
 .cookie-banner{
     position:fixed;
     left:20px;
