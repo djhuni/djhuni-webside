@@ -975,26 +975,288 @@ document.addEventListener("DOMContentLoaded", () => {
 
 });
 /* ===========================================
-   DODATKOWE ATRAKCJE - PODGLĄD ZDJĘCIA
+   DODATKOWE ATRAKCJE - LIGHTBOX
 =========================================== */
 
-const extraCards = document.querySelectorAll(".extra-card");
+const extraCards = document.querySelectorAll(".extra-photo-card");
+
+const extrasLightbox = document.getElementById("extrasLightbox");
+const extrasLightboxImg = document.getElementById("extrasLightboxImg");
+const extrasLightboxTitle = document.getElementById("extrasLightboxTitle");
+const extrasLightboxCounter = document.getElementById("extrasLightboxCounter");
+
+const extrasClose = document.querySelector(".extras-close");
+const extrasPrev = document.querySelector(".extras-prev");
+const extrasNext = document.querySelector(".extras-next");
+
+let currentExtraImages = [];
+let currentExtraIndex = 0;
+let currentExtraTitle = "";
+
+
+/* ZDJĘCIA POSZCZEGÓLNYCH ATRAKCJI */
+
+const extraGalleries = {
+
+    dym: [
+        "dym1.jpg",
+        "dym2.jpg"
+    ],
+
+    iskry: [
+        "iskry1.jpg",
+        "iskry2.jpg",
+        "iskry3.jpg",
+        "iskry4.jpg",
+        "iskry5.jpg"
+    ],
+
+    love: [
+        "love1.jpg"
+    ],
+
+    miny: [
+        "miny1.jpg",
+        "miny2.jpg",
+        "miny3.jpg"
+    ],
+
+    banki: [
+        "banki1.jpg",
+        "banki2.jpg"
+    ]
+
+};
+
+
+/* WYŚWIETLANIE ZDJĘCIA */
+
+function showExtraImage(){
+
+    if(!currentExtraImages.length) return;
+
+    extrasLightboxImg.src =
+        currentExtraImages[currentExtraIndex];
+
+    extrasLightboxImg.alt =
+        currentExtraTitle;
+
+    extrasLightboxTitle.textContent =
+        currentExtraTitle;
+
+    extrasLightboxCounter.textContent =
+        `${currentExtraIndex + 1} / ${currentExtraImages.length}`;
+
+
+    /* Jeśli jest tylko jedno zdjęcie,
+       chowamy strzałki */
+
+    if(currentExtraImages.length <= 1){
+
+        extrasPrev.style.display = "none";
+        extrasNext.style.display = "none";
+
+    }else{
+
+        extrasPrev.style.display = "flex";
+        extrasNext.style.display = "flex";
+
+    }
+
+}
+
+
+/* OTWIERANIE KAFELKA */
 
 extraCards.forEach(card => {
 
     card.addEventListener("click", () => {
 
-        const image = card.querySelector("img");
+        const category =
+            card.dataset.extra;
 
-        if (!image || !lightbox || !lightboxImg) return;
+        const cardImage =
+            card.querySelector("img");
 
-        lightboxImg.src = image.src;
-        lightboxImg.alt = image.alt || "DJ HuNi - dodatkowa atrakcja";
+        const title =
+            card.querySelector("h3");
 
-        lightbox.classList.add("active");
+
+        currentExtraTitle =
+            title ? title.textContent : "Dodatkowa atrakcja";
+
+
+        /*
+        WIATRAKI:
+        ponieważ podmieniłeś zdjęcie ręcznie,
+        pobieramy bezpośrednio zdjęcie z kafelka.
+        */
+
+        if(category === "wiatraki"){
+
+            currentExtraImages = cardImage
+                ? [cardImage.getAttribute("src")]
+                : [];
+
+        }else{
+
+            currentExtraImages =
+                extraGalleries[category] || [];
+
+        }
+
+
+        /*
+        Awaryjnie:
+        jeśli galerii nie znaleziono,
+        używamy zdjęcia kafelka.
+        */
+
+        if(
+            currentExtraImages.length === 0 &&
+            cardImage
+        ){
+
+            currentExtraImages = [
+                cardImage.getAttribute("src")
+            ];
+
+        }
+
+
+        currentExtraIndex = 0;
+
+        showExtraImage();
+
+        extrasLightbox.classList.add("active");
 
         document.body.style.overflow = "hidden";
 
     });
+
+});
+
+
+/* NASTĘPNE ZDJĘCIE */
+
+extrasNext.addEventListener("click", event => {
+
+    event.stopPropagation();
+
+    currentExtraIndex++;
+
+    if(
+        currentExtraIndex >=
+        currentExtraImages.length
+    ){
+        currentExtraIndex = 0;
+    }
+
+    showExtraImage();
+
+});
+
+
+/* POPRZEDNIE ZDJĘCIE */
+
+extrasPrev.addEventListener("click", event => {
+
+    event.stopPropagation();
+
+    currentExtraIndex--;
+
+    if(currentExtraIndex < 0){
+        currentExtraIndex =
+            currentExtraImages.length - 1;
+    }
+
+    showExtraImage();
+
+});
+
+
+/* ZAMKNIĘCIE */
+
+function closeExtrasLightbox(){
+
+    extrasLightbox.classList.remove("active");
+
+    document.body.style.overflow = "";
+
+}
+
+
+extrasClose.addEventListener(
+    "click",
+    closeExtrasLightbox
+);
+
+
+/* KLIKNIĘCIE W CZARNE TŁO */
+
+extrasLightbox.addEventListener(
+    "click",
+    event => {
+
+        if(event.target === extrasLightbox){
+            closeExtrasLightbox();
+        }
+
+    }
+);
+
+
+/* KLAWIATURA */
+
+document.addEventListener("keydown", event => {
+
+    if(
+        !extrasLightbox.classList.contains("active")
+    ){
+        return;
+    }
+
+
+    if(event.key === "Escape"){
+
+        closeExtrasLightbox();
+
+    }
+
+
+    if(
+        event.key === "ArrowRight" &&
+        currentExtraImages.length > 1
+    ){
+
+        currentExtraIndex++;
+
+        if(
+            currentExtraIndex >=
+            currentExtraImages.length
+        ){
+            currentExtraIndex = 0;
+        }
+
+        showExtraImage();
+
+    }
+
+
+    if(
+        event.key === "ArrowLeft" &&
+        currentExtraImages.length > 1
+    ){
+
+        currentExtraIndex--;
+
+        if(currentExtraIndex < 0){
+            currentExtraIndex =
+                currentExtraImages.length - 1;
+        }
+
+        showExtraImage();
+
+    }
 
 });
