@@ -1317,6 +1317,4 @@ if(showMoreGallery && moreGallery){
 }
 
 
-/* ZAMKNIĘCIE DOMContentLoaded */
 
-});
