@@ -1313,62 +1313,6 @@ if (galleryButton && galleryMore) {
 const cookieBanner = document.getElementById("cookieBanner");
 const cookieAccept = document.getElementById("cookieAccept");
 const cookieReject = document.getElementById("cookieReject");
-
-const cookieConsent = localStorage.getItem("djhuni_cookie_consent");
-
-if (cookieBanner && !cookieConsent) {
-    setTimeout(() => {
-        cookieBanner.classList.add("show");
-    }, 800);
-}
-
-if (cookieAccept) {
-
-    cookieAccept.addEventListener("click", () => {
-
-        localStorage.setItem(
-            "djhuni_cookie_consent",
-            "accepted"
-        );
-
-        if (typeof gtag === "function") {
-            gtag("consent", "update", {
-                "analytics_storage": "granted"
-            });
-        }
-
-        cookieBanner.classList.remove("show");
-
-    });
-
-}
-
-if (cookieReject) {
-
-    cookieReject.addEventListener("click", () => {
-
-        localStorage.setItem(
-            "djhuni_cookie_consent",
-            "rejected"
-        );
-
-        if (typeof gtag === "function") {
-            gtag("consent", "update", {
-                "analytics_storage": "denied",
-                "ad_storage": "denied",
-                "ad_user_data": "denied",
-                "ad_personalization": "denied"
-            });
-        }
-
-        cookieBanner.classList.remove("show");
-/* ===========================================
-   COOKIE CONSENT
-=========================================== */
-
-const cookieBanner = document.getElementById("cookieBanner");
-const cookieAccept = document.getElementById("cookieAccept");
-const cookieReject = document.getElementById("cookieReject");
 const cookieSettings = document.getElementById("cookieSettings");
 
 const cookieConsent =
@@ -1380,7 +1324,9 @@ const cookieConsent =
 if (cookieBanner && !cookieConsent) {
 
     setTimeout(() => {
+
         cookieBanner.classList.add("show");
+
     }, 800);
 
 }
@@ -1400,12 +1346,18 @@ if (cookieAccept) {
         if (typeof gtag === "function") {
 
             gtag("consent", "update", {
+
                 "analytics_storage": "granted"
+
             });
 
         }
 
-        cookieBanner.classList.remove("show");
+        if (cookieBanner) {
+
+            cookieBanner.classList.remove("show");
+
+        }
 
     });
 
@@ -1436,7 +1388,11 @@ if (cookieReject) {
 
         }
 
-        cookieBanner.classList.remove("show");
+        if (cookieBanner) {
+
+            cookieBanner.classList.remove("show");
+
+        }
 
     });
 
@@ -1531,9 +1487,4 @@ document.addEventListener("keydown", (e) => {
 
     }
 
-    });
- }
-
-
-
-
+});
