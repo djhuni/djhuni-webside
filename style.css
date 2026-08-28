@@ -569,3 +569,129 @@ section{animation:fadeUp .8s ease}@keyframes fadeUp{from{opacity:0;transform:tra
     }
 
 }
+/* ===========================================
+        DODATKOWE PASKI ZDJĘCIOWE
+=========================================== */
+
+.photo-break{
+    position:relative;
+    min-height:360px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    overflow:hidden;
+
+    background-size:cover;
+    background-position:center;
+    background-repeat:no-repeat;
+}
+
+.photo-break-stats{
+    background-image:url("liczniki-bg.jpg");
+}
+
+.photo-break-faq{
+    background-image:url("faq-bg.jpg");
+    background-position:center 48%;
+}
+
+.photo-break-overlay{
+    position:absolute;
+    inset:0;
+
+    background:
+        linear-gradient(
+            90deg,
+            rgba(0,0,0,.78),
+            rgba(0,0,0,.38),
+            rgba(0,0,0,.72)
+        );
+}
+
+.photo-break-content{
+    position:relative;
+    z-index:2;
+    text-align:center;
+    padding:70px 20px;
+}
+
+.photo-break-content h2{
+    margin:0;
+    color:#fff;
+    font-size:3.1rem;
+    text-transform:uppercase;
+    letter-spacing:1.5px;
+    text-shadow:0 4px 25px rgba(0,0,0,.65);
+}
+
+.photo-break-content p{
+    margin-top:14px;
+    color:var(--gold);
+    font-size:1.2rem;
+    letter-spacing:.7px;
+    text-shadow:0 3px 15px rgba(0,0,0,.8);
+}
+
+/* DELIKATNY EFEKT PRZY NAJECHANIU */
+
+.photo-break::before{
+    content:"";
+    position:absolute;
+    inset:-15px;
+
+    background:inherit;
+    background-size:cover;
+    background-position:inherit;
+
+    transform:scale(1);
+    transition:transform 2s ease;
+}
+
+.photo-break:hover::before{
+    transform:scale(1.04);
+}
+
+/* ponieważ zdjęcie przejmuje ::before */
+.photo-break{
+    background-image:none;
+}
+
+.photo-break-stats::before{
+    background-image:url("liczniki-bg.jpg");
+}
+
+.photo-break-faq::before{
+    background-image:url("faq-bg.jpg");
+}
+
+/* TELEFON */
+
+@media(max-width:768px){
+
+    .photo-break{
+        min-height:300px;
+    }
+
+    .photo-break-content{
+        padding:55px 18px;
+    }
+
+    .photo-break-content h2{
+        font-size:2rem;
+        line-height:1.2;
+    }
+
+    .photo-break-content p{
+        font-size:1rem;
+        line-height:1.5;
+    }
+
+    .photo-break-stats::before{
+        background-position:center;
+    }
+
+    .photo-break-faq::before{
+        background-position:center;
+    }
+
+}
