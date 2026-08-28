@@ -1368,6 +1368,174 @@ if (cookieReject) {
         }
 
         cookieBanner.classList.remove("show");
+/* ===========================================
+   COOKIE CONSENT
+=========================================== */
+
+const cookieBanner = document.getElementById("cookieBanner");
+const cookieAccept = document.getElementById("cookieAccept");
+const cookieReject = document.getElementById("cookieReject");
+const cookieSettings = document.getElementById("cookieSettings");
+
+const cookieConsent =
+    localStorage.getItem("djhuni_cookie_consent");
+
+
+/* PIERWSZA WIZYTA */
+
+if (cookieBanner && !cookieConsent) {
+
+    setTimeout(() => {
+        cookieBanner.classList.add("show");
+    }, 800);
+
+}
+
+
+/* AKCEPTACJA */
+
+if (cookieAccept) {
+
+    cookieAccept.addEventListener("click", () => {
+
+        localStorage.setItem(
+            "djhuni_cookie_consent",
+            "accepted"
+        );
+
+        if (typeof gtag === "function") {
+
+            gtag("consent", "update", {
+                "analytics_storage": "granted"
+            });
+
+        }
+
+        cookieBanner.classList.remove("show");
+
+    });
+
+}
+
+
+/* ODRZUCENIE */
+
+if (cookieReject) {
+
+    cookieReject.addEventListener("click", () => {
+
+        localStorage.setItem(
+            "djhuni_cookie_consent",
+            "rejected"
+        );
+
+        if (typeof gtag === "function") {
+
+            gtag("consent", "update", {
+
+                "analytics_storage": "denied",
+                "ad_storage": "denied",
+                "ad_user_data": "denied",
+                "ad_personalization": "denied"
+
+            });
+
+        }
+
+        cookieBanner.classList.remove("show");
+
+    });
+
+}
+
+
+/* PONOWNE OTWARCIE USTAWIEŃ */
+
+if (cookieSettings && cookieBanner) {
+
+    cookieSettings.addEventListener("click", (e) => {
+
+        e.preventDefault();
+
+        cookieBanner.classList.add("show");
+
+    });
+
+}
+
+
+/* ===========================================
+   POLITYKA PRYWATNOŚCI
+=========================================== */
+
+const privacyOpen =
+    document.getElementById("privacyOpen");
+
+const privacyModal =
+    document.getElementById("privacyModal");
+
+const privacyClose =
+    document.getElementById("privacyClose");
+
+
+if (privacyOpen && privacyModal) {
+
+    privacyOpen.addEventListener("click", (e) => {
+
+        e.preventDefault();
+
+        privacyModal.classList.add("show");
+
+        document.body.style.overflow = "hidden";
+
+    });
+
+}
+
+
+if (privacyClose && privacyModal) {
+
+    privacyClose.addEventListener("click", () => {
+
+        privacyModal.classList.remove("show");
+
+        document.body.style.overflow = "";
+
+    });
+
+}
+
+
+if (privacyModal) {
+
+    privacyModal.addEventListener("click", (e) => {
+
+        if (e.target === privacyModal) {
+
+            privacyModal.classList.remove("show");
+
+            document.body.style.overflow = "";
+
+        }
+
+    });
+
+}
+
+
+document.addEventListener("keydown", (e) => {
+
+    if (
+        e.key === "Escape" &&
+        privacyModal &&
+        privacyModal.classList.contains("show")
+    ) {
+
+        privacyModal.classList.remove("show");
+
+        document.body.style.overflow = "";
+
+    }
 
     });
  }
