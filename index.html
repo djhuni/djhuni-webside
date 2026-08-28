@@ -3,17 +3,31 @@
 
 <head>
 
-    <!-- Google tag (gtag.js) -->
-    <script async src="https://www.googletagmanager.com/gtag/js?id=G-5N2PSC0E6B"></script>
-    <script>
-      window.dataLayer = window.dataLayer || [];
-      function gtag(){dataLayer.push(arguments);}
-      gtag('js', new Date());
+  <!-- Google Analytics + Consent Mode -->
+<script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
 
-      gtag('config', 'G-5N2PSC0E6B');
-    </script>
+    /* Domyślnie brak zgody */
+    gtag('consent', 'default', {
+        'analytics_storage': 'denied',
+        'ad_storage': 'denied',
+        'ad_user_data': 'denied',
+        'ad_personalization': 'denied'
+    });
 
-    <!-- reszta Twojego head -->
+    /* Jeżeli użytkownik wcześniej zaakceptował */
+    if (localStorage.getItem('djhuni_cookie_consent') === 'accepted') {
+        gtag('consent', 'update', {
+            'analytics_storage': 'granted'
+        });
+    }
+
+    gtag('js', new Date());
+    gtag('config', 'G-5N2PSC0E6B');
+</script>
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-5N2PSC0E6B"></script>
 
 </head>
     <meta charset="UTF-8">
@@ -2065,7 +2079,45 @@
 =========================================== -->
 
 <script src="script.js"></script>
+<!-- COOKIE CONSENT -->
+<div class="cookie-banner" id="cookieBanner">
 
+    <div class="cookie-inner">
+
+        <div class="cookie-text">
+            <i class="fa-solid fa-cookie-bite"></i>
+
+            <div>
+                <strong>Twoja prywatność</strong>
+
+                <p>
+                    Ta strona korzysta z Google Analytics, aby anonimowo
+                    analizować ruch i pomagać mi ulepszać stronę.
+                    Możesz zaakceptować analitykę lub korzystać wyłącznie
+                    z niezbędnych funkcji strony.
+                </p>
+            </div>
+        </div>
+
+        <div class="cookie-buttons">
+
+            <button id="cookieReject"
+                    class="cookie-btn cookie-reject"
+                    type="button">
+                Tylko niezbędne
+            </button>
+
+            <button id="cookieAccept"
+                    class="cookie-btn cookie-accept"
+                    type="button">
+                Akceptuję
+            </button>
+
+        </div>
+
+    </div>
+
+</div>
 
 </body>
 
