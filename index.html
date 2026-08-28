@@ -3,31 +3,6 @@
 
 <head>
 
- <!-- Google Analytics + Consent Mode -->
-<script>
-    window.dataLayer = window.dataLayer || [];
-    function gtag(){dataLayer.push(arguments);}
-
-    gtag('consent', 'default', {
-        'analytics_storage': 'denied',
-        'ad_storage': 'denied',
-        'ad_user_data': 'denied',
-        'ad_personalization': 'denied'
-    });
-
-    if (localStorage.getItem('djhuni_cookie_consent') === 'accepted') {
-        gtag('consent', 'update', {
-            'analytics_storage': 'granted'
-        });
-    }
-
-    gtag('js', new Date());
-    gtag('config', 'G-5N2PSC0E6B');
-</script>
-
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-5N2PSC0E6B"></script>
-
-</head>
     <meta charset="UTF-8">
 
     <meta name="viewport"
@@ -54,8 +29,56 @@
     <link rel="stylesheet"
           href="style.css">
 
-</head>
 
+    <!-- GOOGLE ANALYTICS + CONSENT MODE -->
+
+    <script>
+
+        window.dataLayer = window.dataLayer || [];
+
+        function gtag(){
+            dataLayer.push(arguments);
+        }
+
+        gtag('consent', 'default', {
+
+            'analytics_storage': 'denied',
+            'ad_storage': 'denied',
+            'ad_user_data': 'denied',
+            'ad_personalization': 'denied'
+
+        });
+
+
+        if (
+            localStorage.getItem('djhuni_cookie_consent')
+            === 'accepted'
+        ) {
+
+            gtag('consent', 'update', {
+
+                'analytics_storage': 'granted'
+
+            });
+
+        }
+
+
+        gtag('js', new Date());
+
+        gtag(
+            'config',
+            'G-5N2PSC0E6B'
+        );
+
+    </script>
+
+
+    <script async
+            src="https://www.googletagmanager.com/gtag/js?id=G-5N2PSC0E6B">
+    </script>
+
+</head>
 
 <body>
 
@@ -2077,627 +2100,6 @@
 =========================================== -->
 
 <script src="script.js"></script>
-<!-- COOKIE CONSENT -->
-<div class="cookie-banner" id="cookieBanner">
-
-    <div class="cookie-inner">
-
-        <div class="cookie-text">
-
-            <i class="fa-solid fa-cookie-bite"></i>
-
-            <div>
-
-                <strong>Twoja prywatność</strong>
-
-                <p>
-                    Ta strona korzysta z narzędzi analitycznych,
-                    które pomagają mi sprawdzić, jak użytkownicy
-                    korzystają ze strony. Analityka zostanie
-                    uruchomiona dopiero po Twojej zgodzie.
-                </p>
-
-            </div>
-
-        </div>
-
-        <div class="cookie-buttons">
-
-            <button
-                id="cookieReject"
-                class="cookie-btn cookie-reject"
-                type="button">
-                Tylko niezbędne
-            </button>
-
-            <button
-                id="cookieAccept"
-                class="cookie-btn cookie-accept"
-                type="button">
-                Akceptuję
-            </button>
-
-        </div>
-
-    </div>
-
-</div>
-<!-- =========================================
-     PRYWATNOŚĆ I COOKIES
-========================================= -->
-
-<style>
-
-#privacyModal{
-    position:fixed;
-    inset:0;
-    z-index:100000;
-
-    display:none;
-    align-items:center;
-    justify-content:center;
-
-    padding:20px;
-
-    background:rgba(0,0,0,.88);
-    backdrop-filter:blur(8px);
-}
-
-#privacyModal.open{
-    display:flex;
-}
-
-#privacyModal .privacy-box{
-    position:relative;
-
-    width:min(850px, 100%);
-    max-height:85vh;
-
-    overflow-y:auto;
-
-    padding:38px;
-
-    background:#111;
-    border:1px solid rgba(212,175,55,.45);
-    border-radius:22px;
-
-    box-shadow:0 30px 80px rgba(0,0,0,.75);
-}
-
-#privacyModal .privacy-label{
-    display:block;
-
-    margin-bottom:7px;
-
-    color:#d4af37;
-
-    font-size:12px;
-    font-weight:600;
-    letter-spacing:2px;
-    text-transform:uppercase;
-}
-
-#privacyModal h2{
-    margin:0 50px 25px 0;
-
-    color:#fff;
-
-    font-size:30px;
-}
-
-#privacyModal h3{
-    margin:24px 0 7px;
-
-    color:#d4af37;
-
-    font-size:16px;
-}
-
-#privacyModal p{
-    margin:0 0 12px;
-
-    color:rgba(255,255,255,.75);
-
-    font-size:14px;
-    line-height:1.7;
-}
-
-#privacyModal strong{
-    color:#fff;
-}
-
-#privacyClose{
-    position:absolute;
-    top:18px;
-    right:18px;
-
-    width:42px;
-    height:42px;
-
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    padding:0;
-
-    border:1px solid rgba(212,175,55,.55);
-    border-radius:50%;
-
-    background:transparent;
-    color:#d4af37;
-
-    font-size:28px;
-    line-height:1;
-
-    cursor:pointer;
-}
-
-#privacyClose:hover{
-    background:#d4af37;
-    color:#111;
-}
-
-.footer-legal{
-    display:flex;
-    align-items:center;
-    justify-content:center;
-
-    gap:10px;
-
-    padding:15px 10px 25px;
-
-    background:#090909;
-
-    font-size:13px;
-}
-
-.footer-legal a{
-    color:rgba(255,255,255,.55);
-    text-decoration:none;
-}
-
-.footer-legal a:hover{
-    color:#d4af37;
-}
-
-.footer-legal span{
-    color:rgba(212,175,55,.55);
-}
-
-@media(max-width:600px){
-
-    #privacyModal{
-        padding:10px;
-    }
-
-    #privacyModal .privacy-box{
-        padding:28px 20px;
-        max-height:90vh;
-    }
-
-    #privacyModal h2{
-        font-size:23px;
-    }
-
-    #privacyModal p{
-        font-size:13px;
-    }
-
-}
-
-</style>
-
-
-<!-- POLITYKA PRYWATNOŚCI -->
-
-<div id="privacyModal">
-
-    <div class="privacy-box">
-
-        <button
-            id="privacyClose"
-            type="button"
-            aria-label="Zamknij">
-            &times;
-        </button>
-
-        <span class="privacy-label">
-            DJ HuNi
-        </span>
-
-        <h2>
-            Polityka prywatności i cookies
-        </h2>
-
-        <div class="privacy-content">
-
-            <h3>1. Informacje ogólne</h3>
-
-            <p>
-                Niniejsza polityka dotyczy strony internetowej
-                DJ HuNi dostępnej pod adresem djhuni.pl.
-            </p>
-
-
-            <h3>2. Kontakt</h3>
-
-            <p>
-                W sprawach związanych z prywatnością i funkcjonowaniem
-                strony możesz skontaktować się pod adresem
-                <strong>djhuni@o2.pl</strong>.
-            </p>
-
-
-            <h3>3. Formularz kontaktowy</h3>
-
-            <p>
-                Dane przekazane dobrowolnie poprzez formularz kontaktowy
-                wykorzystywane są wyłącznie w celu udzielenia odpowiedzi
-                na zapytanie oraz kontaktu w sprawie oferowanych usług.
-            </p>
-
-
-            <h3>4. Google Analytics</h3>
-
-            <p>
-                Strona korzysta z Google Analytics w celu uzyskiwania
-                informacji statystycznych dotyczących sposobu korzystania
-                ze strony, takich jak liczba odwiedzin, popularność treści
-                czy ogólne informacje techniczne dotyczące wizyt.
-            </p>
-
-            <p>
-                Analityczne pliki cookies są wykorzystywane po wyrażeniu
-                zgody przez użytkownika.
-            </p>
-
-
-            <h3>5. Pliki cookies</h3>
-
-            <p>
-                Strona może wykorzystywać pliki cookies oraz podobne
-                technologie niezbędne do jej prawidłowego działania.
-                Technologie analityczne są wykorzystywane zgodnie
-                z wyborem dokonanym przez użytkownika.
-            </p>
-
-
-            <h3>6. Zmiana zgody</h3>
-
-            <p>
-                Użytkownik może w dowolnym momencie zmienić swój wybór
-                poprzez opcję „Ustawienia cookies” znajdującą się
-                w stopce strony.
-            </p>
-
-
-            <h3>7. Zewnętrzni dostawcy</h3>
-
-            <p>
-                W związku z korzystaniem z Google Analytics dane
-                mogą być przetwarzane przez dostawcę tej usługi,
-                czyli Google.
-            </p>
-
-
-            <h3>8. Zmiany polityki</h3>
-
-            <p>
-                Polityka może zostać zaktualizowana w przypadku zmian
-                działania strony, używanych narzędzi lub obowiązujących
-                przepisów.
-            </p>
-
-        </div>
-
-    </div>
-
-</div>
-
-
-<!-- LINKI NA DOLE -->
-
-<div class="footer-legal">
-
-    <a href="#" id="privacyOpen">
-        Polityka prywatności
-    </a>
-
-    <span>•</span>
-
-    <a href="#" id="cookieSettings">
-        Ustawienia cookies
-    </a>
-
-</div>
-
-
-<script>
-
-const privacyModalFix =
-    document.getElementById("privacyModal");
-
-const privacyOpenFix =
-    document.getElementById("privacyOpen");
-
-const privacyCloseFix =
-    document.getElementById("privacyClose");
-
-
-if (privacyOpenFix && privacyModalFix){
-
-    privacyOpenFix.addEventListener("click", function(e){
-
-        e.preventDefault();
-
-        privacyModalFix.classList.add("open");
-
-        document.body.style.overflow = "hidden";
-
-    });
-
-}
-
-
-if (privacyCloseFix && privacyModalFix){
-
-    privacyCloseFix.addEventListener("click", function(){
-
-        privacyModalFix.classList.remove("open");
-
-        document.body.style.overflow = "";
-
-    });
-
-}
-
-
-if (privacyModalFix){
-
-    privacyModalFix.addEventListener("click", function(e){
-
-        if(e.target === privacyModalFix){
-
-            privacyModalFix.classList.remove("open");
-
-            document.body.style.overflow = "";
-
-        }
-
-    });
-
-}
-
-
-document.addEventListener("keydown", function(e){
-
-    if(
-        e.key === "Escape" &&
-        privacyModalFix
-    ){
-
-        privacyModalFix.classList.remove("open");
-
-        document.body.style.overflow = "";
-
-    }
-
-});
-<!-- COOKIE CONSENT -->
-<div class="cookie-banner" id="cookieBanner">
-
-    <div class="cookie-inner">
-
-        <div class="cookie-text">
-            <i class="fa-solid fa-cookie-bite"></i>
-
-            <div>
-                <strong>Twoja prywatność</strong>
-
-                <p>
-                    Ta strona korzysta z Google Analytics, aby sprawdzić,
-                    jak użytkownicy korzystają ze strony. Analityka zostanie
-                    uruchomiona dopiero po Twojej zgodzie.
-                </p>
-            </div>
-        </div>
-
-        <div class="cookie-buttons">
-
-            <button
-                id="cookieReject"
-                class="cookie-btn cookie-reject"
-                type="button">
-                Tylko niezbędne
-            </button>
-
-            <button
-                id="cookieAccept"
-                class="cookie-btn cookie-accept"
-                type="button">
-                Akceptuję
-            </button>
-
-        </div>
-
-    </div>
-
-</div>
- const cookieBannerFix =
-    document.getElementById("cookieBanner");
-
-const cookieAcceptFix =
-    document.getElementById("cookieAccept");
-
-const cookieRejectFix =
-    document.getElementById("cookieReject");
-
-const cookieSettingsFix =
-    document.getElementById("cookieSettings");
-
-const savedCookieConsent =
-    localStorage.getItem("djhuni_cookie_consent");
-
-
-if(cookieBannerFix && !savedCookieConsent){
-
-    setTimeout(function(){
-
-        cookieBannerFix.classList.add("open");
-
-    }, 700);
-
-}
-
-
-if(cookieAcceptFix){
-
-    cookieAcceptFix.addEventListener("click", function(){
-
-        localStorage.setItem(
-            "djhuni_cookie_consent",
-            "accepted"
-        );
-
-        if(typeof gtag === "function"){
-
-            gtag("consent", "update", {
-                analytics_storage: "granted"
-            });
-
-        }
-
-        cookieBannerFix.classList.remove("open");
-
-    });
-
-}
-
-
-if(cookieRejectFix){
-
-    cookieRejectFix.addEventListener("click", function(){
-
-        localStorage.setItem(
-            "djhuni_cookie_consent",
-            "rejected"
-        );
-
-        if(typeof gtag === "function"){
-
-            gtag("consent", "update", {
-                analytics_storage: "denied",
-                ad_storage: "denied",
-                ad_user_data: "denied",
-                ad_personalization: "denied"
-            });
-
-        }
-
-        cookieBannerFix.classList.remove("open");
-
-    });
-
-}
-
-
-if(cookieSettingsFix && cookieBannerFix){
-
-    cookieSettingsFix.addEventListener("click", function(e){
-
-        e.preventDefault();
-
-        cookieBannerFix.classList.add("open");
-
-    });
-
-}
-</script>
-<!-- COOKIE BANER -->
-<div id="cookieBanner" style="
-    position:fixed;
-    left:20px;
-    right:20px;
-    bottom:20px;
-    z-index:100001;
-    display:none;
-">
-
-    <div style="
-        max-width:1100px;
-        margin:auto;
-        background:#111;
-        border:1px solid #d4af37;
-        border-radius:18px;
-        padding:20px;
-        display:flex;
-        justify-content:space-between;
-        align-items:center;
-        gap:20px;
-        box-shadow:0 20px 60px rgba(0,0,0,.7);
-    ">
-
-        <div style="color:#fff;">
-
-            <strong style="color:#d4af37;">
-                Twoja prywatność
-            </strong>
-
-            <div style="
-                font-size:13px;
-                margin-top:5px;
-                color:rgba(255,255,255,.75);
-            ">
-                Ta strona korzysta z Google Analytics.
-                Analityka zostanie uruchomiona po Twojej zgodzie.
-            </div>
-
-        </div>
-
-        <div style="
-            display:flex;
-            gap:10px;
-            flex-shrink:0;
-        ">
-
-            <button
-                id="cookieReject"
-                type="button"
-                style="
-                    padding:12px 18px;
-                    border-radius:25px;
-                    border:1px solid #777;
-                    background:transparent;
-                    color:#fff;
-                    cursor:pointer;
-                ">
-                Tylko niezbędne
-            </button>
-
-            <button
-                id="cookieAccept"
-                type="button"
-                style="
-                    padding:12px 22px;
-                    border-radius:25px;
-                    border:1px solid #d4af37;
-                    background:#d4af37;
-                    color:#111;
-                    font-weight:600;
-                    cursor:pointer;
-                ">
-                Akceptuję
-            </button>
-
-        </div>
-
-    </div>
-
-</div>
-
-
-<script>
-(function(){
 
 <!-- ==================================================
      POLITYKA PRYWATNOŚCI + COOKIES
@@ -2705,9 +2107,7 @@ if(cookieSettingsFix && cookieBannerFix){
 
 <style>
 
-/* =========================
-   POLITYKA PRYWATNOŚCI
-========================= */
+/* POLITYKA PRYWATNOŚCI */
 
 #privacyModal {
     position: fixed;
@@ -2755,6 +2155,7 @@ if(cookieSettingsFix && cookieBannerFix){
 
     font-size: 12px;
     font-weight: 600;
+
     letter-spacing: 2px;
     text-transform: uppercase;
 }
@@ -2790,6 +2191,7 @@ if(cookieSettingsFix && cookieBannerFix){
 
 #privacyClose {
     position: absolute;
+
     top: 18px;
     right: 18px;
 
@@ -2809,7 +2211,6 @@ if(cookieSettingsFix && cookieBannerFix){
     color: #d4af37;
 
     font-size: 28px;
-    line-height: 1;
 
     cursor: pointer;
 }
@@ -2820,9 +2221,7 @@ if(cookieSettingsFix && cookieBannerFix){
 }
 
 
-/* =========================
-   LINKI NA DOLE
-========================= */
+/* LINKI NA DOLE */
 
 .footer-legal {
     display: flex;
@@ -2840,9 +2239,8 @@ if(cookieSettingsFix && cookieBannerFix){
 
 .footer-legal a {
     color: rgba(255,255,255,.55);
-    text-decoration: none;
 
-    transition: color .3s ease;
+    text-decoration: none;
 }
 
 .footer-legal a:hover {
@@ -2854,9 +2252,7 @@ if(cookieSettingsFix && cookieBannerFix){
 }
 
 
-/* =========================
-   BANER COOKIES
-========================= */
+/* BANER COOKIES */
 
 #cookieBanner {
     position: fixed;
@@ -2952,15 +2348,6 @@ if(cookieSettingsFix && cookieBannerFix){
     font-weight: 600;
 
     cursor: pointer;
-
-    transition:
-        transform .25s ease,
-        background .25s ease,
-        border-color .25s ease;
-}
-
-.cookie-btn:hover {
-    transform: translateY(-2px);
 }
 
 .cookie-reject {
@@ -2971,10 +2358,6 @@ if(cookieSettingsFix && cookieBannerFix){
     color: #fff;
 }
 
-.cookie-reject:hover {
-    border-color: #fff;
-}
-
 .cookie-accept {
     border: 1px solid #d4af37;
 
@@ -2983,15 +2366,8 @@ if(cookieSettingsFix && cookieBannerFix){
     color: #111;
 }
 
-.cookie-accept:hover {
-    background: #e5c457;
-    border-color: #e5c457;
-}
 
-
-/* =========================
-   TELEFON
-========================= */
+/* TELEFON */
 
 @media (max-width: 700px) {
 
@@ -3012,7 +2388,6 @@ if(cookieSettingsFix && cookieBannerFix){
     #privacyModal p {
         font-size: 13px;
     }
-
 
     #cookieBanner {
         left: 10px;
@@ -3075,6 +2450,7 @@ if(cookieSettingsFix && cookieBannerFix){
 
         <div class="privacy-content">
 
+
             <h3>1. Informacje ogólne</h3>
 
             <p>
@@ -3086,8 +2462,9 @@ if(cookieSettingsFix && cookieBannerFix){
             <h3>2. Kontakt</h3>
 
             <p>
-                W sprawach związanych z prywatnością i funkcjonowaniem
-                strony możesz skontaktować się pod adresem
+                W sprawach związanych z prywatnością
+                i funkcjonowaniem strony możesz skontaktować się
+                pod adresem
                 <strong>djhuni@o2.pl</strong>.
             </p>
 
@@ -3095,35 +2472,36 @@ if(cookieSettingsFix && cookieBannerFix){
             <h3>3. Formularz kontaktowy</h3>
 
             <p>
-                Dane przekazane dobrowolnie poprzez formularz kontaktowy
-                wykorzystywane są w celu udzielenia odpowiedzi na zapytanie
-                oraz kontaktu w sprawie oferowanych usług.
+                Dane przekazane dobrowolnie poprzez formularz
+                kontaktowy wykorzystywane są w celu udzielenia
+                odpowiedzi na zapytanie oraz kontaktu w sprawie
+                oferowanych usług.
             </p>
 
 
             <h3>4. Google Analytics</h3>
 
             <p>
-                Strona korzysta z Google Analytics w celu uzyskiwania
-                informacji statystycznych dotyczących sposobu korzystania
-                ze strony, takich jak liczba odwiedzin, popularność
-                poszczególnych treści oraz ogólne informacje techniczne
-                dotyczące wizyt.
+                Strona korzysta z Google Analytics w celu
+                uzyskiwania informacji statystycznych dotyczących
+                sposobu korzystania ze strony, takich jak liczba
+                odwiedzin, popularność treści czy ogólne informacje
+                techniczne dotyczące wizyt.
             </p>
 
             <p>
-                Analityczne pliki cookies są wykorzystywane zgodnie
-                z wyborem dokonanym przez użytkownika.
+                Analityczne pliki cookies są wykorzystywane
+                zgodnie z wyborem dokonanym przez użytkownika.
             </p>
 
 
             <h3>5. Pliki cookies</h3>
 
             <p>
-                Strona może wykorzystywać pliki cookies oraz podobne
-                technologie niezbędne do jej prawidłowego działania.
-                Technologie analityczne są wykorzystywane zgodnie
-                z wyborem dokonanym przez użytkownika.
+                Strona może wykorzystywać pliki cookies oraz
+                podobne technologie niezbędne do jej prawidłowego
+                działania. Technologie analityczne są wykorzystywane
+                zgodnie z wyborem dokonanym przez użytkownika.
             </p>
 
 
@@ -3139,9 +2517,9 @@ if(cookieSettingsFix && cookieBannerFix){
             <h3>7. Zmiana decyzji</h3>
 
             <p>
-                Użytkownik może w dowolnym momencie ponownie wyświetlić
-                panel zgody poprzez opcję „Ustawienia cookies”
-                znajdującą się na dole strony i zmienić swój wybór.
+                Użytkownik może w dowolnym momencie ponownie
+                wyświetlić panel zgody poprzez opcję
+                „Ustawienia cookies” znajdującą się na dole strony.
             </p>
 
 
@@ -3157,10 +2535,11 @@ if(cookieSettingsFix && cookieBannerFix){
             <h3>9. Zmiany polityki</h3>
 
             <p>
-                Polityka może zostać zaktualizowana w przypadku zmian
-                sposobu działania strony, wykorzystywanych narzędzi
+                Polityka może zostać zaktualizowana w przypadku
+                zmian działania strony, używanych narzędzi
                 lub obowiązujących przepisów.
             </p>
+
 
         </div>
 
@@ -3171,7 +2550,7 @@ if(cookieSettingsFix && cookieBannerFix){
 
 
 <!-- ==================================================
-     LINKI PRYWATNOŚCI
+     LINKI NA DOLE
 ================================================== -->
 
 <div class="footer-legal">
@@ -3209,10 +2588,10 @@ if(cookieSettingsFix && cookieBannerFix){
                 </strong>
 
                 <p>
-                    Ta strona korzysta z Google Analytics w celach
-                    statystycznych. Możesz zaakceptować analityczne
-                    pliki cookies albo korzystać wyłącznie
-                    z niezbędnych funkcji strony.
+                    Ta strona korzysta z Google Analytics
+                    w celach statystycznych. Możesz zaakceptować
+                    analityczne pliki cookies albo korzystać
+                    wyłącznie z niezbędnych funkcji strony.
                 </p>
 
             </div>
@@ -3226,14 +2605,19 @@ if(cookieSettingsFix && cookieBannerFix){
                 id="cookieReject"
                 class="cookie-btn cookie-reject"
                 type="button">
+
                 Tylko niezbędne
+
             </button>
+
 
             <button
                 id="cookieAccept"
                 class="cookie-btn cookie-accept"
                 type="button">
+
                 Akceptuję
+
             </button>
 
         </div>
@@ -3245,16 +2629,15 @@ if(cookieSettingsFix && cookieBannerFix){
 
 
 <!-- ==================================================
-     OBSŁUGA POLITYKI I COOKIES
+     SKRYPT POLITYKI I COOKIES
 ================================================== -->
 
 <script>
 
 (function () {
 
-    /* -------------------------
-       POLITYKA PRYWATNOŚCI
-    ------------------------- */
+
+    /* POLITYKA PRYWATNOŚCI */
 
     var privacyModal =
         document.getElementById("privacyModal");
@@ -3290,58 +2673,68 @@ if(cookieSettingsFix && cookieBannerFix){
 
     if (privacyOpen) {
 
-        privacyOpen.addEventListener("click", function (event) {
+        privacyOpen.addEventListener(
+            "click",
+            function (event) {
 
-            event.preventDefault();
+                event.preventDefault();
 
-            openPrivacy();
+                openPrivacy();
 
-        });
+            }
+        );
 
     }
 
 
     if (privacyClose) {
 
-        privacyClose.addEventListener("click", function () {
+        privacyClose.addEventListener(
+            "click",
+            function () {
 
-            closePrivacy();
+                closePrivacy();
 
-        });
+            }
+        );
 
     }
 
 
     if (privacyModal) {
 
-        privacyModal.addEventListener("click", function (event) {
+        privacyModal.addEventListener(
+            "click",
+            function (event) {
 
-            if (event.target === privacyModal) {
+                if (event.target === privacyModal) {
+
+                    closePrivacy();
+
+                }
+
+            }
+        );
+
+    }
+
+
+    document.addEventListener(
+        "keydown",
+        function (event) {
+
+            if (event.key === "Escape") {
 
                 closePrivacy();
 
             }
 
-        });
-
-    }
-
-
-    document.addEventListener("keydown", function (event) {
-
-        if (event.key === "Escape") {
-
-            closePrivacy();
-
         }
-
-    });
-
+    );
 
 
-    /* -------------------------
-       COOKIES
-    ------------------------- */
+
+    /* COOKIES */
 
     var cookieBanner =
         document.getElementById("cookieBanner");
@@ -3378,9 +2771,13 @@ if(cookieSettingsFix && cookieBannerFix){
 
         if (typeof window.gtag === "function") {
 
-            window.gtag("consent", "update", {
-                analytics_storage: "granted"
-            });
+            window.gtag(
+                "consent",
+                "update",
+                {
+                    analytics_storage: "granted"
+                }
+            );
 
         }
 
@@ -3391,14 +2788,16 @@ if(cookieSettingsFix && cookieBannerFix){
 
         if (typeof window.gtag === "function") {
 
-            window.gtag("consent", "update", {
-
-                analytics_storage: "denied",
-                ad_storage: "denied",
-                ad_user_data: "denied",
-                ad_personalization: "denied"
-
-            });
+            window.gtag(
+                "consent",
+                "update",
+                {
+                    analytics_storage: "denied",
+                    ad_storage: "denied",
+                    ad_user_data: "denied",
+                    ad_personalization: "denied"
+                }
+            );
 
         }
 
@@ -3407,19 +2806,23 @@ if(cookieSettingsFix && cookieBannerFix){
 
     var savedConsent = null;
 
+
     try {
 
         savedConsent =
-            localStorage.getItem("djhuni_cookie_consent");
+            localStorage.getItem(
+                "djhuni_cookie_consent"
+            );
 
-    } catch (error) {
+    }
+
+    catch (error) {
 
         savedConsent = null;
 
     }
 
 
-    /* Jeśli użytkownik już wcześniej zaakceptował */
 
     if (savedConsent === "accepted") {
 
@@ -3428,8 +2831,6 @@ if(cookieSettingsFix && cookieBannerFix){
     }
 
 
-    /* Jeśli użytkownik wcześniej odrzucił */
-
     if (savedConsent === "rejected") {
 
         denyAnalyticsConsent();
@@ -3437,80 +2838,100 @@ if(cookieSettingsFix && cookieBannerFix){
     }
 
 
-    /* Jeśli decyzji jeszcze nie ma */
-
     if (!savedConsent) {
 
-        setTimeout(function () {
+        setTimeout(
+            function () {
 
-            showCookieBanner();
+                showCookieBanner();
 
-        }, 700);
+            },
+            700
+        );
 
     }
+
 
 
     /* AKCEPTUJĘ */
 
     if (cookieAccept) {
 
-        cookieAccept.addEventListener("click", function () {
+        cookieAccept.addEventListener(
+            "click",
+            function () {
 
-            try {
+                try {
 
-                localStorage.setItem(
-                    "djhuni_cookie_consent",
-                    "accepted"
-                );
+                    localStorage.setItem(
+                        "djhuni_cookie_consent",
+                        "accepted"
+                    );
 
-            } catch (error) {}
+                }
 
-            grantAnalyticsConsent();
+                catch (error) {}
 
-            hideCookieBanner();
 
-        });
+                grantAnalyticsConsent();
+
+                hideCookieBanner();
+
+            }
+        );
 
     }
+
 
 
     /* TYLKO NIEZBĘDNE */
 
     if (cookieReject) {
 
-        cookieReject.addEventListener("click", function () {
+        cookieReject.addEventListener(
+            "click",
+            function () {
 
-            try {
+                try {
 
-                localStorage.setItem(
-                    "djhuni_cookie_consent",
-                    "rejected"
-                );
+                    localStorage.setItem(
+                        "djhuni_cookie_consent",
+                        "rejected"
+                    );
 
-            } catch (error) {}
+                }
 
-            denyAnalyticsConsent();
+                catch (error) {}
 
-            hideCookieBanner();
 
-        });
+                denyAnalyticsConsent();
+
+                hideCookieBanner();
+
+            }
+        );
 
     }
+
 
 
     /* USTAWIENIA COOKIES */
 
     if (cookieSettings) {
 
-        cookieSettings.addEventListener("click", function (event) {
+        cookieSettings.addEventListener(
+            "click",
+            function (event) {
 
-            event.preventDefault();
+                event.preventDefault();
 
-            showCookieBanner();
+                showCookieBanner();
 
-        });
+            }
+        );
 
     }
+
 
 })();
 
