@@ -1315,7 +1315,70 @@ if(showMoreGallery && moreGallery){
 
     });
 }
+/* ===========================================
+   IKONA - BAŃKI Z DYMEM
+=========================================== */
 
+.bubble-icon{
+    width:54px;
+    height:54px;
+    position:relative;
+    display:block;
+    flex-shrink:0;
+
+    margin-bottom:20px;
+
+    border-radius:50%;
+    background:rgba(212,175,55,.12);
+    border:1px solid rgba(212,175,55,.5);
+
+    backdrop-filter:blur(8px);
+}
+
+/* wszystkie bąbelki */
+
+.bubble-icon span{
+    position:absolute;
+    display:block;
+    border:2px solid var(--gold);
+    border-radius:50%;
+}
+
+/* duża bańka */
+
+.bubble-icon span:nth-child(1){
+    width:15px;
+    height:15px;
+    left:12px;
+    top:23px;
+}
+
+/* średnia */
+
+.bubble-icon span:nth-child(2){
+    width:11px;
+    height:11px;
+    right:11px;
+    top:14px;
+}
+
+/* mała */
+
+.bubble-icon span:nth-child(3){
+    width:7px;
+    height:7px;
+    left:21px;
+    top:10px;
+}
+
+/* najmniejsza */
+
+.bubble-icon span:nth-child(4){
+    width:6px;
+    height:6px;
+    right:15px;
+    bottom:10px;
+}
 
 /* ZAMKNIĘCIE DOMContentLoaded */
 
