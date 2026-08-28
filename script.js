@@ -1288,30 +1288,20 @@ if(emotionSlides.length > 1){
    POKAŻ WIĘCEJ - GALERIA
 =========================================== */
 
-const showMoreGallery =
-    document.getElementById("showMoreGallery");
+const galleryButton = document.getElementById("showMoreGallery");
+const galleryMore = document.getElementById("moreGallery");
 
-const moreGallery =
-    document.getElementById("moreGallery");
+if (galleryButton && galleryMore) {
 
-if (showMoreGallery && moreGallery) {
+    galleryButton.addEventListener("click", function () {
 
-    showMoreGallery.addEventListener("click", () => {
+        const isOpen = galleryMore.classList.toggle("active");
 
-        moreGallery.classList.toggle("active");
-        showMoreGallery.classList.toggle("active");
+        galleryButton.classList.toggle("active", isOpen);
 
-        if (moreGallery.classList.contains("active")) {
-
-            showMoreGallery.childNodes[0].nodeValue =
-                "Pokaż mniej zdjęć ";
-
-        } else {
-
-            showMoreGallery.childNodes[0].nodeValue =
-                "Pokaż więcej zdjęć ";
-
-        }
+        galleryButton.innerHTML = isOpen
+            ? 'Pokaż mniej zdjęć <i class="fa-solid fa-chevron-up"></i>'
+            : 'Pokaż więcej zdjęć <i class="fa-solid fa-chevron-down"></i>';
 
     });
 
