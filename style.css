@@ -1776,3 +1776,73 @@ header .header-inner .header-socials a:hover i{
 
 
 }
+/* ==========================================
+   LINK SEO - DJ NA WESELE JAROCIN
+========================================== */
+
+.about-buttons {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 25px;
+}
+
+.btn-local-seo {
+    min-height: 50px;
+    padding: 0 22px;
+
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+
+    border: 1px solid rgba(212,175,55,.55);
+    border-radius: 30px;
+
+    color: #d4af37;
+    background: rgba(212,175,55,.04);
+
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: none;
+
+    transition: .3s ease;
+}
+
+.btn-local-seo:hover {
+    background: #d4af37;
+    color: #111;
+
+    transform: translateY(-2px);
+
+    box-shadow: 0 8px 25px rgba(212,175,55,.18);
+}
+
+.btn-local-seo .fa-arrow-right {
+    font-size: 11px;
+    transition: transform .3s ease;
+}
+
+.btn-local-seo:hover .fa-arrow-right {
+    transform: translateX(4px);
+}
+
+
+/* TELEFON */
+
+@media (max-width: 600px) {
+
+    .about-buttons {
+        align-items: stretch;
+        flex-direction: column;
+    }
+
+    .about-buttons .btn-primary,
+    .btn-local-seo {
+        width: 100%;
+        box-sizing: border-box;
+        text-align: center;
+    }
+
+}
