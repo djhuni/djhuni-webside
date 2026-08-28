@@ -3154,6 +3154,31 @@
     </a>
 
 </div>
+    <script>
+(function () {
+
+    const btn = document.getElementById("showMoreGallery");
+    const gallery = document.getElementById("moreGallery");
+
+    if (!btn || !gallery) {
+        console.log("Nie znaleziono przycisku lub galerii");
+        return;
+    }
+
+    btn.addEventListener("click", function () {
+
+        const opened = gallery.classList.toggle("active");
+
+        btn.classList.toggle("active", opened);
+
+        btn.innerHTML = opened
+            ? 'Pokaż mniej zdjęć <i class="fa-solid fa-chevron-up"></i>'
+            : 'Pokaż więcej zdjęć <i class="fa-solid fa-chevron-down"></i>';
+
+    });
+
+})();
+</script>
 </body>
 
 </html>
