@@ -1286,4 +1286,32 @@ if(emotionSlides.length > 1){
     }, 6500);
 
 }
+   /* ===========================================
+   POKAŻ WIĘCEJ - GALERIA
+=========================================== */
+
+const showMoreGallery =
+    document.getElementById("showMoreGallery");
+
+const moreGallery =
+    document.getElementById("moreGallery");
+
+if(showMoreGallery && moreGallery){
+
+    showMoreGallery.addEventListener("click", () => {
+
+        moreGallery.classList.toggle("active");
+        showMoreGallery.classList.toggle("active");
+
+        if(moreGallery.classList.contains("active")){
+            showMoreGallery.childNodes[0].nodeValue =
+                "Pokaż mniej zdjęć ";
+        }else{
+            showMoreGallery.childNodes[0].nodeValue =
+                "Pokaż więcej zdjęć ";
+        }
+
+    });
+
+}
 });
