@@ -866,3 +866,89 @@ section{animation:fadeUp .8s ease}@keyframes fadeUp{from{opacity:0;transform:tra
     right:15px;
     bottom:10px;
 }
+/* ===========================================
+   SOCIAL MEDIA W NAGŁÓWKU
+=========================================== */
+
+.header-inner{
+    display:flex;
+    align-items:center;
+}
+
+.header-socials{
+    display:flex;
+    align-items:center;
+    gap:10px;
+
+    margin-left:26px;
+    margin-right:30px;
+
+    flex-shrink:0;
+}
+
+.header-socials a{
+    width:42px;
+    height:42px;
+
+    display:flex;
+    align-items:center;
+    justify-content:center;
+
+    border:1px solid rgba(212,175,55,.6);
+    border-radius:50%;
+
+    background:rgba(212,175,55,.07);
+    color:var(--gold);
+
+    font-size:18px;
+    text-decoration:none;
+
+    transition:
+        transform .3s ease,
+        background .3s ease,
+        color .3s ease,
+        border-color .3s ease,
+        box-shadow .3s ease;
+}
+
+.header-socials a:hover{
+    transform:translateY(-3px);
+
+    background:var(--gold);
+    color:#111;
+    border-color:var(--gold);
+
+    box-shadow:
+        0 8px 22px rgba(0,0,0,.35),
+        0 0 18px rgba(212,175,55,.22);
+}
+
+
+/* LAPTOP / MNIEJSZY EKRAN */
+
+@media(max-width:1200px){
+
+    .header-socials{
+        gap:7px;
+        margin-left:16px;
+        margin-right:18px;
+    }
+
+    .header-socials a{
+        width:37px;
+        height:37px;
+        font-size:15px;
+    }
+
+}
+
+
+/* TELEFON / TABLET */
+
+@media(max-width:900px){
+
+    .header-socials{
+        display:none;
+    }
+
+}
