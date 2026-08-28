@@ -1520,5 +1520,132 @@ header .header-inner .header-socials a:hover i{
     .privacy-box h2{
         font-size:23px;
     }
+/* ===========================================
+   POLITYKA PRYWATNOŚCI - NAPRAWA
+=========================================== */
+
+.privacy-modal{
+    position:fixed !important;
+    inset:0 !important;
+    z-index:100000 !important;
+
+    display:flex !important;
+    align-items:center !important;
+    justify-content:center !important;
+
+    padding:20px !important;
+
+    background:rgba(0,0,0,.85) !important;
+    backdrop-filter:blur(8px);
+
+    opacity:0 !important;
+    visibility:hidden !important;
+    pointer-events:none !important;
+
+    transition:
+        opacity .3s ease,
+        visibility .3s ease !important;
+}
+
+.privacy-modal.show{
+    opacity:1 !important;
+    visibility:visible !important;
+    pointer-events:auto !important;
+}
+
+.privacy-box{
+    position:relative !important;
+
+    width:100% !important;
+    max-width:850px !important;
+    max-height:85vh !important;
+
+    padding:38px !important;
+
+    overflow-y:auto !important;
+
+    background:#111 !important;
+
+    border:1px solid rgba(212,175,55,.45) !important;
+    border-radius:22px !important;
+
+    box-shadow:0 30px 80px rgba(0,0,0,.75) !important;
+}
+
+.privacy-label{
+    display:block;
+    margin-bottom:7px;
+
+    color:#d4af37 !important;
+
+    font-size:12px;
+    font-weight:600;
+    letter-spacing:2px;
+    text-transform:uppercase;
+}
+
+.privacy-box h2{
+    margin:0 50px 30px 0 !important;
+
+    color:#fff !important;
+    font-size:30px !important;
+}
+
+.privacy-content h3{
+    margin:26px 0 8px !important;
+
+    color:#d4af37 !important;
+    font-size:16px !important;
+}
+
+.privacy-content p{
+    margin:0 0 12px !important;
+
+    color:rgba(255,255,255,.72) !important;
+
+    font-size:14px !important;
+    line-height:1.75 !important;
+}
+
+.privacy-close{
+    position:absolute !important;
+
+    top:18px !important;
+    right:20px !important;
+
+    width:42px !important;
+    height:42px !important;
+
+    display:flex !important;
+    align-items:center !important;
+    justify-content:center !important;
+
+    border:1px solid rgba(212,175,55,.45) !important;
+    border-radius:50% !important;
+
+    background:transparent !important;
+    color:#d4af37 !important;
+
+    font-size:27px !important;
+
+    cursor:pointer !important;
+}
+
+.privacy-close:hover{
+    background:#d4af37 !important;
+    color:#111 !important;
+}
+
+@media(max-width:600px){
+
+    .privacy-box{
+        padding:28px 20px !important;
+        max-height:88vh !important;
+    }
+
+    .privacy-box h2{
+        font-size:23px !important;
+    }
+
 
 }
