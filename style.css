@@ -698,3 +698,107 @@ section{animation:fadeUp .8s ease}@keyframes fadeUp{from{opacity:0;transform:tra
         linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.45)),
         url("faq-bg.jpg") center/cover no-repeat !important;
 }
+/* ===========================================
+   ROZWIJANA GALERIA
+=========================================== */
+
+.gallery-more-wrap{
+    text-align:center;
+    margin-top:35px;
+}
+
+.gallery-more-btn{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    padding:14px 28px;
+
+    border:1px solid var(--gold);
+    border-radius:30px;
+
+    background:transparent;
+    color:var(--gold);
+
+    font-size:15px;
+    font-weight:600;
+    letter-spacing:.5px;
+
+    cursor:pointer;
+    transition:.3s ease;
+}
+
+.gallery-more-btn:hover{
+    background:var(--gold);
+    color:#111;
+}
+
+.gallery-more-btn i{
+    transition:transform .35s ease;
+}
+
+.gallery-more-btn.active i{
+    transform:rotate(180deg);
+}
+
+/* dodatkowe zdjęcia */
+
+.gallery-more-grid{
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:20px;
+
+    max-height:0;
+    overflow:hidden;
+    opacity:0;
+
+    margin-top:0;
+
+    transition:
+        max-height .8s ease,
+        opacity .5s ease,
+        margin-top .5s ease;
+}
+
+.gallery-more-grid.active{
+    max-height:3000px;
+    opacity:1;
+    margin-top:35px;
+}
+
+.gallery-more-grid .gallery-item{
+    border-radius:18px;
+    overflow:hidden;
+}
+
+.gallery-more-grid .gallery-item img{
+    width:100%;
+    height:280px;
+    object-fit:cover;
+    display:block;
+
+    transition:transform .6s ease;
+}
+
+.gallery-more-grid .gallery-item:hover img{
+    transform:scale(1.06);
+}
+
+@media(max-width:900px){
+
+    .gallery-more-grid{
+        grid-template-columns:repeat(2,1fr);
+    }
+
+}
+
+@media(max-width:600px){
+
+    .gallery-more-grid{
+        grid-template-columns:1fr;
+    }
+
+    .gallery-more-grid .gallery-item img{
+        height:250px;
+    }
+
+}
