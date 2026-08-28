@@ -652,17 +652,9 @@ section{animation:fadeUp .8s ease}@keyframes fadeUp{from{opacity:0;transform:tra
 }
 
 /* ponieważ zdjęcie przejmuje ::before */
-.photo-break{
-    background-image:none;
+
 }
 
-.photo-break-stats::before{
-    background-image:url("liczniki-bg.jpg");
-}
-
-.photo-break-faq::before{
-    background-image:url("faq-bg.jpg");
-}
 
 /* TELEFON */
 
@@ -694,4 +686,15 @@ section{animation:fadeUp .8s ease}@keyframes fadeUp{from{opacity:0;transform:tra
         background-position:center;
     }
 
+}
+.photo-break-stats{
+    background:
+        linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.45)),
+        url("liczniki-bg.jpg") center/cover no-repeat !important;
+}
+
+.photo-break-faq{
+    background:
+        linear-gradient(rgba(0,0,0,.45),rgba(0,0,0,.45)),
+        url("faq-bg.jpg") center/cover no-repeat !important;
 }
