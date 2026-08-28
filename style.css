@@ -1846,3 +1846,83 @@ header .header-inner .header-socials a:hover i{
     }
 
 }
+/* ==========================================
+   PRZYCISK - DJ NA WESELE JAROCIN
+========================================== */
+
+.about-buttons {
+    display: flex !important;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 14px;
+    margin-top: 25px;
+}
+
+.about-buttons .btn-local-seo {
+    min-height: 50px;
+    padding: 0 24px;
+
+    display: inline-flex !important;
+    align-items: center;
+    justify-content: center;
+    gap: 9px;
+
+    box-sizing: border-box;
+
+    background: transparent !important;
+    border: 1px solid #d4af37 !important;
+    border-radius: 30px;
+
+    color: #d4af37 !important;
+
+    font-size: 14px;
+    font-weight: 600;
+    text-decoration: none !important;
+
+    transition: all .3s ease;
+}
+
+.about-buttons .btn-local-seo:visited {
+    color: #d4af37 !important;
+}
+
+.about-buttons .btn-local-seo:hover {
+    background: #d4af37 !important;
+    color: #111 !important;
+
+    transform: translateY(-2px);
+
+    box-shadow: 0 8px 25px rgba(212,175,55,.20);
+}
+
+.about-buttons .btn-local-seo i {
+    color: inherit;
+}
+
+.about-buttons .btn-local-seo .fa-arrow-right {
+    font-size: 11px;
+    transition: transform .3s ease;
+}
+
+.about-buttons .btn-local-seo:hover .fa-arrow-right {
+    transform: translateX(4px);
+}
+
+
+/* TELEFON */
+
+@media (max-width: 600px) {
+
+    .about-buttons {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .about-buttons .btn-primary,
+    .about-buttons .btn-local-seo {
+        width: 100%;
+        justify-content: center;
+        text-align: center;
+    }
+
+}
