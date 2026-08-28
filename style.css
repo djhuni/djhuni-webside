@@ -3183,7 +3183,54 @@ section {
 
 }
 
+/* =========================================
+   PŁYWAJĄCE PRZYCISKI KONTAKTOWE - MOBILE
+========================================= */
 
+.mobile-contact-bar{
+    display:none;
+}
+
+@media(max-width:700px){
+
+    .mobile-contact-bar{
+        position:fixed;
+        left:0;
+        right:0;
+        bottom:0;
+        z-index:9998;
+        display:flex;
+        gap:10px;
+        padding:10px 12px;
+        background:rgba(10,10,10,.95);
+        backdrop-filter:blur(10px);
+        border-top:1px solid rgba(201,164,76,.25);
+    }
+
+    .mobile-contact-btn{
+        flex:1;
+        min-height:48px;
+        display:flex;
+        align-items:center;
+        justify-content:center;
+        gap:8px;
+        border-radius:8px;
+        background:#c9a44c;
+        color:#090909;
+        text-decoration:none;
+        font-weight:700;
+        font-size:14px;
+        box-shadow:0 6px 20px rgba(0,0,0,.35);
+    }
+
+    .mobile-contact-btn i{
+        font-size:15px;
+    }
+
+    body{
+        padding-bottom:72px;
+    }
+}
 
 /* ==========================================================
    KONIEC STYLE.CSS
