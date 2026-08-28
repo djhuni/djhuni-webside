@@ -2613,7 +2613,7 @@ if(cookieSettingsFix && cookieBannerFix){
 
 }
 </script>
- <!-- COOKIE BANER -->
+<!-- COOKIE BANER -->
 <div id="cookieBanner" style="
     position:fixed;
     left:20px;
@@ -2638,6 +2638,7 @@ if(cookieSettingsFix && cookieBannerFix){
     ">
 
         <div style="color:#fff;">
+
             <strong style="color:#d4af37;">
                 Twoja prywatność
             </strong>
@@ -2650,6 +2651,7 @@ if(cookieSettingsFix && cookieBannerFix){
                 Ta strona korzysta z Google Analytics.
                 Analityka zostanie uruchomiona po Twojej zgodzie.
             </div>
+
         </div>
 
         <div style="
@@ -2658,30 +2660,32 @@ if(cookieSettingsFix && cookieBannerFix){
             flex-shrink:0;
         ">
 
-            <button id="cookieReject"
-                    type="button"
-                    style="
-                        padding:12px 18px;
-                        border-radius:25px;
-                        border:1px solid #777;
-                        background:transparent;
-                        color:#fff;
-                        cursor:pointer;
-                    ">
+            <button
+                id="cookieReject"
+                type="button"
+                style="
+                    padding:12px 18px;
+                    border-radius:25px;
+                    border:1px solid #777;
+                    background:transparent;
+                    color:#fff;
+                    cursor:pointer;
+                ">
                 Tylko niezbędne
             </button>
 
-            <button id="cookieAccept"
-                    type="button"
-                    style="
-                        padding:12px 22px;
-                        border-radius:25px;
-                        border:1px solid #d4af37;
-                        background:#d4af37;
-                        color:#111;
-                        font-weight:600;
-                        cursor:pointer;
-                    ">
+            <button
+                id="cookieAccept"
+                type="button"
+                style="
+                    padding:12px 22px;
+                    border-radius:25px;
+                    border:1px solid #d4af37;
+                    background:#d4af37;
+                    color:#111;
+                    font-weight:600;
+                    cursor:pointer;
+                ">
                 Akceptuję
             </button>
 
@@ -2695,22 +2699,117 @@ if(cookieSettingsFix && cookieBannerFix){
 <script>
 (function(){
 
-    const banner = document.getElementById("cookieBanner");
-    const accept = document.getElementById("cookieAccept");
-    const reject = document.getElementById("cookieReject");
-    const settings = document.getElementById("cookieSettings");
+    /* =========================
+       POLITYKA PRYWATNOŚCI
+    ========================= */
 
-    const saved =
-        localStorage.getItem("djhuni_cookie_consent");
+    const privacyModal =
+        document.getElementById("privacyModal");
 
-    if (banner && !saved) {
-        setTimeout(function(){
-            banner.style.display = "block";
-        }, 500);
+    const privacyOpen =
+        document.getElementById("privacyOpen");
+
+    const privacyClose =
+        document.getElementById("privacyClose");
+
+
+    if (privacyOpen && privacyModal) {
+
+        privacyOpen.addEventListener("click", function(e){
+
+            e.preventDefault();
+
+            privacyModal.classList.add("open");
+
+            document.body.style.overflow = "hidden";
+
+        });
+
     }
 
-    if (accept) {
-        accept.addEventListener("click", function(){
+
+    if (privacyClose && privacyModal) {
+
+        privacyClose.addEventListener("click", function(){
+
+            privacyModal.classList.remove("open");
+
+            document.body.style.overflow = "";
+
+        });
+
+    }
+
+
+    if (privacyModal) {
+
+        privacyModal.addEventListener("click", function(e){
+
+            if (e.target === privacyModal) {
+
+                privacyModal.classList.remove("open");
+
+                document.body.style.overflow = "";
+
+            }
+
+        });
+
+    }
+
+
+    document.addEventListener("keydown", function(e){
+
+        if (
+            e.key === "Escape" &&
+            privacyModal
+        ) {
+
+            privacyModal.classList.remove("open");
+
+            document.body.style.overflow = "";
+
+        }
+
+    });
+
+
+
+    /* =========================
+       COOKIES
+    ========================= */
+
+    const cookieBanner =
+        document.getElementById("cookieBanner");
+
+    const cookieAccept =
+        document.getElementById("cookieAccept");
+
+    const cookieReject =
+        document.getElementById("cookieReject");
+
+    const cookieSettings =
+        document.getElementById("cookieSettings");
+
+
+    const savedConsent =
+        localStorage.getItem("djhuni_cookie_consent");
+
+
+    if (cookieBanner && !savedConsent) {
+
+        setTimeout(function(){
+
+            cookieBanner.style.display = "block";
+
+        }, 700);
+
+    }
+
+
+    if (cookieAccept) {
+
+        cookieAccept.addEventListener("click", function(){
 
             localStorage.setItem(
                 "djhuni_cookie_consent",
@@ -2718,17 +2817,23 @@ if(cookieSettingsFix && cookieBannerFix){
             );
 
             if (typeof gtag === "function") {
+
                 gtag("consent", "update", {
                     analytics_storage: "granted"
                 });
+
             }
 
-            banner.style.display = "none";
+            cookieBanner.style.display = "none";
+
         });
+
     }
 
-    if (reject) {
-        reject.addEventListener("click", function(){
+
+    if (cookieReject) {
+
+        cookieReject.addEventListener("click", function(){
 
             localStorage.setItem(
                 "djhuni_cookie_consent",
@@ -2736,29 +2841,37 @@ if(cookieSettingsFix && cookieBannerFix){
             );
 
             if (typeof gtag === "function") {
+
                 gtag("consent", "update", {
                     analytics_storage: "denied",
                     ad_storage: "denied",
                     ad_user_data: "denied",
                     ad_personalization: "denied"
                 });
+
             }
 
-            banner.style.display = "none";
+            cookieBanner.style.display = "none";
+
         });
+
     }
 
-    if (settings && banner) {
-        settings.addEventListener("click", function(e){
+
+    if (cookieSettings && cookieBanner) {
+
+        cookieSettings.addEventListener("click", function(e){
 
             e.preventDefault();
 
-            banner.style.display = "block";
+            cookieBanner.style.display = "block";
+
         });
+
     }
 
 })();
 </script>
-</body>
 
+</body>
 </html>
